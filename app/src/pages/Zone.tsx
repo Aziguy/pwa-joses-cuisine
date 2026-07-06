@@ -12,7 +12,7 @@ export default function Zone() {
     { label: 'Délai', valeur: infos.delaiCommande },
     { label: 'Frais de livraison', valeur: infos.fraisLivraison },
     { label: 'Minimum de commande', valeur: infos.minimumCommande },
-    { label: 'Paiement', valeur: 'Espèces, virement, Lydia/PayPal' },
+    { label: 'Paiement', valeur: 'PayPal, virement bancaire ou wero' },
   ]
 
   return (

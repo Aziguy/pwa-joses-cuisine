@@ -22,11 +22,11 @@
     },
     {
       "q": "Quels moyens de paiement ?",
-      "r": "Espèces à la livraison, virement ou Lydia/PayPal. Pas de carte bancaire pour l'instant."
+      "r": "PayPal, virement bancaire ou wero. Pas de carte bancaire pour l'instant."
     },
     {
       "q": "Puis-je annuler ma commande ?",
-      "r": "Oui, jusqu'à la veille 20h sans frais. Le jour même, les courses sont faites : 50% du montant reste dû."
+      "r": "Oui 48h à l’avance pour les simples plats. Pour les événements c’est deux semaines à l’avance. Après 48h 60% du montant restant dû"
     },
     {
       "q": "Faites-vous du végétarien / sans porc ?",
