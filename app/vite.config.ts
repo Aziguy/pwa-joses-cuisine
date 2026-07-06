@@ -13,7 +13,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icons/favicon-64.png', 'icons/apple-touch-icon.png', 'robots.txt'],
       manifest: {
-        name: "Jose's cuisine — food is bae*",
+        name: "JS cuisine — food is bae*",
         short_name: "Jose's cuisine",
         description:
           'Cuisine camerounaise & africaine, faite maison en Ile-de-France. Menu de la semaine, recettes, repas composés — commande par WhatsApp ou Messenger.',
