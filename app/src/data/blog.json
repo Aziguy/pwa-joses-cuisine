@@ -1,0 +1,48 @@
+{
+  "articles": [
+    {
+      "id": "b1",
+      "titre": "Bien conserver ses marinades maison",
+      "date": "Juin 2026",
+      "extrait": "Frigo, congélateur, stérilisation : les bons réflexes pour garder vos marinades 3 semaines ou 3 mois.",
+      "contenu": [
+        "Une marinade maison sans conservateur se garde 5 à 7 jours au réfrigérateur, dans un pot en verre bien fermé, avec un film d'huile en surface pour la protéger de l'air.",
+        "Pour plus longtemps : congelez en bac à glaçons. Chaque cube = une portion pour un poisson ou 2 cuisses de poulet. Trois mois de tranquillité.",
+        "Signes qu'il faut jeter : odeur aigre, moisissures, ou pot qui « pschitte » à l'ouverture. Dans le doute, on ne goûte pas."
+      ]
+    },
+    {
+      "id": "b2",
+      "titre": "Les bienfaits du bissap",
+      "date": "Mai 2026",
+      "extrait": "L'hibiscus est riche en antioxydants et en vitamine C. Et en plus c'est délicieux.",
+      "contenu": [
+        "Le bissap (fleur d'hibiscus) est consommé dans toute l'Afrique de l'Ouest et centrale. Riche en antioxydants et en vitamine C, il est réputé aider à la digestion.",
+        "Buvez-le peu sucré pour profiter de ses bienfaits : chez Jose's cuisine, on dose léger et on parfume à la vanille et à la menthe.",
+        "Astuce maison : gardez les fleurs après infusion, elles font une excellente confiture."
+      ]
+    },
+    {
+      "id": "b3",
+      "titre": "Cuisiner africain avec un petit budget",
+      "date": "Avril 2026",
+      "extrait": "Plantain, riz, arachide, haricots : la cuisine africaine est la reine des petits budgets.",
+      "contenu": [
+        "Les bases de la cuisine africaine — plantain, riz, arachide, haricots, manioc — coûtent peu et rassasient beaucoup. Un mafé pour 4 personnes revient à moins de 10 € de courses.",
+        "Achetez le plantain vert et laissez-le mûrir chez vous : moins cher, et vous le cuisinez au stade exact que vous voulez.",
+        "Le week-end, préparez une grande sauce (tomate ou arachide) : elle sert de base à 3 repas différents dans la semaine."
+      ]
+    },
+    {
+      "id": "b4",
+      "titre": "Réussir son poisson braisé à la maison",
+      "date": "Mars 2026",
+      "extrait": "Le secret n'est pas la braise : c'est la marinade et la patience.",
+      "contenu": [
+        "Un bon poisson braisé commence 2 heures avant la cuisson : incisez profondément la chair et massez-la avec la marinade (gingembre, ail, njansang, persil).",
+        "Pas de barbecue ? Une poêle-gril en fonte bien chaude fait très bien l'affaire. Cuisson douce, on ne retourne qu'une seule fois.",
+        "Servez avec miondo ou plantain vapeur, et la sauce verte à part. Nos marinades maison sont en vente à l'épicerie !"
+      ]
+    }
+  ]
+}

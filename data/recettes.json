@@ -1,0 +1,345 @@
+{
+  "recettes": [
+    {
+      "id": "ndole",
+      "nom": "Ndolè aux crevettes",
+      "categorie": "Plats",
+      "prix": 12,
+      "temps": "1h30",
+      "difficulte": "Moyen",
+      "tags": [
+        "bio"
+      ],
+      "description": "Le plat national camerounais : feuilles de ndolè, pâte d'arachide, crevettes et viande mijotées.",
+      "ingredients": [
+        "Feuilles de ndolè",
+        "Pâte d'arachide",
+        "Crevettes",
+        "Viande de bœuf",
+        "Oignons, ail, gingembre",
+        "Huile, sel"
+      ],
+      "etapes": [
+        "Faire bouillir et presser les feuilles de ndolè",
+        "Préparer la base arachide-oignons",
+        "Mijoter viande et crevettes",
+        "Assembler et laisser réduire 30 min"
+      ],
+      "astuce": "Presser les feuilles trois fois pour enlever l'amertume."
+    },
+    {
+      "id": "poulet-dg",
+      "nom": "Poulet DG",
+      "categorie": "Plats",
+      "prix": 13,
+      "temps": "1h",
+      "difficulte": "Moyen",
+      "tags": [],
+      "description": "Poulet « Directeur Général » : poulet sauté aux plantains mûrs et légumes croquants.",
+      "ingredients": [
+        "Poulet fermier",
+        "Plantains mûrs",
+        "Carottes, poivrons, haricots verts",
+        "Ail, gingembre, épices maison"
+      ],
+      "etapes": [
+        "Dorer le poulet mariné",
+        "Frire les plantains",
+        "Sauter les légumes",
+        "Tout réunir avec le bouillon épicé"
+      ],
+      "astuce": "Le plantain doit être bien mûr mais ferme, jamais noir."
+    },
+    {
+      "id": "poisson-braise",
+      "nom": "Poisson braisé & miondo",
+      "categorie": "Plats",
+      "prix": 14,
+      "temps": "1h15",
+      "difficulte": "Facile",
+      "tags": [
+        "epice"
+      ],
+      "description": "Poisson entier mariné puis braisé, servi avec miondo (bâtons de manioc) et sauce verte.",
+      "ingredients": [
+        "Bar ou dorade entier",
+        "Marinade maison (gingembre, ail, njansang)",
+        "Miondo",
+        "Sauce verte pimentée"
+      ],
+      "etapes": [
+        "Mariner le poisson 2h minimum",
+        "Braiser doucement de chaque côté",
+        "Servir avec miondo et sauce"
+      ],
+      "astuce": "La marinade doit pénétrer par des incisions profondes."
+    },
+    {
+      "id": "mafe",
+      "nom": "Mafé de bœuf",
+      "categorie": "Plats",
+      "prix": 11,
+      "temps": "1h15",
+      "difficulte": "Facile",
+      "tags": [
+        "petit-budget"
+      ],
+      "description": "Ragoût ouest-africain à la sauce arachide, fondant et généreux, servi avec du riz.",
+      "ingredients": [
+        "Bœuf à mijoter",
+        "Pâte d'arachide",
+        "Tomates, oignons",
+        "Riz blanc"
+      ],
+      "etapes": [
+        "Saisir la viande",
+        "Ajouter tomates et pâte d'arachide",
+        "Mijoter 1h à feu doux",
+        "Servir sur riz"
+      ],
+      "astuce": "Une cuillère de miel équilibre l'acidité de la tomate."
+    },
+    {
+      "id": "alloco",
+      "nom": "Alloco",
+      "categorie": "Entrées",
+      "prix": 5,
+      "temps": "25 min",
+      "difficulte": "Facile",
+      "tags": [
+        "vegetarien",
+        "petit-budget"
+      ],
+      "description": "Plantains mûrs frits, dorés et caramélisés, avec sauce tomate pimentée.",
+      "ingredients": [
+        "Plantains bien mûrs",
+        "Huile de friture",
+        "Sauce tomate-oignon",
+        "Piment (option)"
+      ],
+      "etapes": [
+        "Couper les plantains en biseaux",
+        "Frire jusqu'à caramélisation",
+        "Servir chaud avec la sauce"
+      ],
+      "astuce": "Saler juste à la sortie de l'huile, jamais avant."
+    },
+    {
+      "id": "accras",
+      "nom": "Accras de morue",
+      "categorie": "Entrées",
+      "prix": 6,
+      "temps": "40 min",
+      "difficulte": "Moyen",
+      "tags": [],
+      "description": "Beignets croustillants de morue et herbes, parfaits pour l'apéro.",
+      "ingredients": [
+        "Morue dessalée",
+        "Farine, levure",
+        "Oignons verts, persil, piment",
+        "Huile de friture"
+      ],
+      "etapes": [
+        "Émietter la morue dessalée",
+        "Préparer la pâte à beignets",
+        "Frire par petites cuillerées"
+      ],
+      "astuce": "La pâte doit reposer 30 min pour des accras aériens."
+    },
+    {
+      "id": "salade-avocat",
+      "nom": "Salade avocat-crevettes",
+      "categorie": "Entrées",
+      "prix": 6,
+      "temps": "15 min",
+      "difficulte": "Facile",
+      "tags": [
+        "bio"
+      ],
+      "description": "Avocat, crevettes, citron vert et coriandre — fraîcheur garantie.",
+      "ingredients": [
+        "Avocats mûrs",
+        "Crevettes cuites",
+        "Citron vert, coriandre",
+        "Huile d'olive"
+      ],
+      "etapes": [
+        "Couper avocats et crevettes",
+        "Assaisonner au citron vert",
+        "Servir bien frais"
+      ],
+      "astuce": "Un trait de gingembre frais râpé change tout."
+    },
+    {
+      "id": "puff-puff",
+      "nom": "Beignets soufflés (puff-puff)",
+      "categorie": "Desserts",
+      "prix": 4,
+      "temps": "2h (repos inclus)",
+      "difficulte": "Facile",
+      "tags": [
+        "vegetarien",
+        "petit-budget"
+      ],
+      "description": "Beignets moelleux et sucrés, l'incontournable des goûters camerounais.",
+      "ingredients": [
+        "Farine, sucre, levure",
+        "Eau tiède",
+        "Muscade",
+        "Huile de friture"
+      ],
+      "etapes": [
+        "Préparer la pâte et laisser lever 1h30",
+        "Former des boules à la main",
+        "Frire jusqu'à belle couleur dorée"
+      ],
+      "astuce": "La pâte est prête quand elle fait des bulles en surface."
+    },
+    {
+      "id": "salade-fruits",
+      "nom": "Salade de fruits exotiques",
+      "categorie": "Desserts",
+      "prix": 4,
+      "temps": "15 min",
+      "difficulte": "Facile",
+      "tags": [
+        "bio",
+        "vegetarien"
+      ],
+      "description": "Mangue, ananas, papaye et menthe fraîche, selon le marché.",
+      "ingredients": [
+        "Mangue, ananas, papaye",
+        "Citron vert",
+        "Menthe fraîche"
+      ],
+      "etapes": [
+        "Couper les fruits en dés",
+        "Arroser de citron vert",
+        "Réserver au frais 30 min"
+      ],
+      "astuce": "Choisir des fruits mûrs à point, jamais au frigo avant découpe."
+    },
+    {
+      "id": "bissap",
+      "nom": "Jus de bissap",
+      "categorie": "Boissons",
+      "prix": 3,
+      "temps": "30 min + repos",
+      "difficulte": "Facile",
+      "tags": [
+        "bio",
+        "vegetarien",
+        "petit-budget"
+      ],
+      "description": "Infusion glacée de fleurs d'hibiscus, légèrement sucrée à la vanille.",
+      "ingredients": [
+        "Fleurs d'hibiscus séchées",
+        "Sucre de canne",
+        "Vanille, menthe"
+      ],
+      "etapes": [
+        "Infuser les fleurs 20 min",
+        "Sucrer et parfumer",
+        "Servir très frais"
+      ],
+      "astuce": "Ne pas trop faire bouillir : le bissap devient amer."
+    },
+    {
+      "id": "gingembre",
+      "nom": "Jus de gingembre",
+      "categorie": "Boissons",
+      "prix": 3,
+      "temps": "30 min",
+      "difficulte": "Facile",
+      "tags": [
+        "epice",
+        "vegetarien"
+      ],
+      "description": "Jus de gingembre frais pressé, citron et ananas — le coup de fouet naturel.",
+      "ingredients": [
+        "Gingembre frais",
+        "Ananas",
+        "Citron",
+        "Sucre de canne"
+      ],
+      "etapes": [
+        "Mixer le gingembre avec de l'eau",
+        "Filtrer finement",
+        "Mélanger avec ananas et citron"
+      ],
+      "astuce": "Laisser reposer une nuit : le goût s'arrondit."
+    },
+    {
+      "id": "marinade-braise",
+      "nom": "Marinade braisé maison",
+      "categorie": "Sauces & Marinades",
+      "prix": 7,
+      "temps": "20 min",
+      "difficulte": "Facile",
+      "tags": [
+        "epice"
+      ],
+      "description": "Notre marinade signature pour poissons et viandes braisés — pot de 250 g.",
+      "ingredients": [
+        "Gingembre, ail, oignon",
+        "Njansang, pèbè",
+        "Persil, céleri",
+        "Huile"
+      ],
+      "etapes": [
+        "Mixer tous les ingrédients",
+        "Ajuster sel et piment",
+        "Conserver au frais"
+      ],
+      "astuce": "Se congèle très bien en petites portions."
+    },
+    {
+      "id": "sauce-arachide",
+      "nom": "Sauce arachide",
+      "categorie": "Sauces & Marinades",
+      "prix": 6,
+      "temps": "30 min",
+      "difficulte": "Facile",
+      "tags": [
+        "vegetarien",
+        "petit-budget"
+      ],
+      "description": "Sauce onctueuse à la pâte d'arachide, prête à réchauffer — pot de 300 g.",
+      "ingredients": [
+        "Pâte d'arachide 100%",
+        "Tomates, oignons",
+        "Épices douces"
+      ],
+      "etapes": [
+        "Revenir la base tomate-oignon",
+        "Délayer la pâte d'arachide",
+        "Mijoter 20 min"
+      ],
+      "astuce": "Parfaite aussi en sauce pour légumes rôtis."
+    },
+    {
+      "id": "gateau-coco",
+      "nom": "Gâteau coco-vanille",
+      "categorie": "Gâteaux",
+      "prix": 15,
+      "temps": "1h",
+      "difficulte": "Moyen",
+      "tags": [
+        "vegetarien"
+      ],
+      "description": "Gâteau moelleux à la noix de coco fraîche râpée, pour 6-8 parts.",
+      "ingredients": [
+        "Noix de coco fraîche",
+        "Farine, œufs, beurre",
+        "Vanille",
+        "Sucre de canne"
+      ],
+      "etapes": [
+        "Râper la coco fraîche",
+        "Monter la pâte",
+        "Cuire 40 min à 170°C"
+      ],
+      "astuce": "Coco fraîche uniquement — la sèche assèche le gâteau."
+    }
+  ]
+}

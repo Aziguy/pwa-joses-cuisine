@@ -1,0 +1,36 @@
+{
+  "photos": [
+    {
+      "id": "g1",
+      "legende": "Ndolè aux crevettes, plantain vapeur"
+    },
+    {
+      "id": "g2",
+      "legende": "Poulet DG du vendredi"
+    },
+    {
+      "id": "g3",
+      "legende": "Poisson braisé au feu de bois"
+    },
+    {
+      "id": "g4",
+      "legende": "Buffet mariage — 80 personnes"
+    },
+    {
+      "id": "g5",
+      "legende": "Puff-puff tout juste frits"
+    },
+    {
+      "id": "g6",
+      "legende": "Marinades maison de la semaine"
+    },
+    {
+      "id": "g7",
+      "legende": "Gâteau coco sur mesure"
+    },
+    {
+      "id": "g8",
+      "legende": "Atelier cuisine à domicile"
+    }
+  ]
+}

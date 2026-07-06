@@ -1,0 +1,36 @@
+{
+  "questions": [
+    {
+      "q": "Comment passer commande ?",
+      "r": "Par WhatsApp ou Messenger : choisissez vos plats sur le site, le message se prépare tout seul, il ne reste qu'à l'envoyer. Commande la veille avant 18h."
+    },
+    {
+      "q": "Quelles communes livrez-vous ?",
+      "r": "Les Yvelines : Versailles, Saint-Quentin-en-Yvelines, Montigny, Guyancourt, Trappes, Élancourt, Plaisir, Poissy, Vélizy et Rambouillet. Autre commune ? Demandez-nous."
+    },
+    {
+      "q": "Quels sont les frais de livraison ?",
+      "r": "Entre 3 et 6 € selon la commune. Minimum de commande : 20 €. Retrait à domicile possible sans frais."
+    },
+    {
+      "q": "Gérez-vous les allergènes ?",
+      "r": "Oui. Indiquez vos allergies dans le champ « précisions » : arachide, gluten, crustacés… on adapte ou on vous déconseille honnêtement le plat."
+    },
+    {
+      "q": "Peut-on ajuster le niveau de piment ?",
+      "r": "Bien sûr : doux, moyen ou « comme au pays ». Le piment est souvent servi à part."
+    },
+    {
+      "q": "Quels moyens de paiement ?",
+      "r": "Espèces à la livraison, virement ou Lydia/PayPal. Pas de carte bancaire pour l'instant."
+    },
+    {
+      "q": "Puis-je annuler ma commande ?",
+      "r": "Oui, jusqu'à la veille 20h sans frais. Le jour même, les courses sont faites : 50% du montant reste dû."
+    },
+    {
+      "q": "Faites-vous du végétarien / sans porc ?",
+      "r": "Oui aux deux. Beaucoup de nos plats sont naturellement sans porc, et nous avons toujours des options végétariennes."
+    }
+  ]
+}

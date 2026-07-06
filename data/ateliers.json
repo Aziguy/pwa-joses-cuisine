@@ -1,0 +1,22 @@
+{
+  "ateliers": [
+    {
+      "nom": "Atelier ndolè & plantain",
+      "duree": "3h",
+      "prix": "45 €/pers",
+      "desc": "Le plat national de A à Z, chez vous ou chez José (max 6 pers)"
+    },
+    {
+      "nom": "Atelier poisson braisé",
+      "duree": "2h30",
+      "prix": "40 €/pers",
+      "desc": "Marinade, cuisson, sauce verte : vous repartez autonome"
+    },
+    {
+      "nom": "Atelier pâtisserie africaine",
+      "duree": "3h",
+      "prix": "40 €/pers",
+      "desc": "Puff-puff, gâteau coco et crêpes banane"
+    }
+  ]
+}

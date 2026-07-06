@@ -1,0 +1,102 @@
+{
+  "categories": [
+    {
+      "id": "entree",
+      "nom": "Entrée",
+      "options": [
+        {
+          "nom": "Alloco",
+          "prix": 3.5
+        },
+        {
+          "nom": "Accras de morue (x3)",
+          "prix": 4
+        },
+        {
+          "nom": "Salade avocat-crevettes",
+          "prix": 4.5
+        }
+      ]
+    },
+    {
+      "id": "plat",
+      "nom": "Plat",
+      "options": [
+        {
+          "nom": "Ndolè aux crevettes",
+          "prix": 12
+        },
+        {
+          "nom": "Poulet DG",
+          "prix": 13
+        },
+        {
+          "nom": "Poisson braisé & miondo",
+          "prix": 14
+        },
+        {
+          "nom": "Mafé de bœuf & riz",
+          "prix": 11
+        },
+        {
+          "nom": "Riz sauté aux légumes",
+          "prix": 9
+        }
+      ]
+    },
+    {
+      "id": "dessert",
+      "nom": "Dessert",
+      "options": [
+        {
+          "nom": "Puff-puff (x4)",
+          "prix": 3
+        },
+        {
+          "nom": "Part de gâteau coco",
+          "prix": 3.5
+        },
+        {
+          "nom": "Salade de fruits",
+          "prix": 3
+        }
+      ]
+    },
+    {
+      "id": "boisson",
+      "nom": "Boisson",
+      "options": [
+        {
+          "nom": "Bissap 50cl",
+          "prix": 3
+        },
+        {
+          "nom": "Jus de gingembre 50cl",
+          "prix": 3
+        },
+        {
+          "nom": "Jus de mangue 50cl",
+          "prix": 3
+        }
+      ]
+    },
+    {
+      "id": "extra",
+      "nom": "Extras & sauces",
+      "options": [
+        {
+          "nom": "Piment maison (pot)",
+          "prix": 1.5
+        },
+        {
+          "nom": "Sauce arachide (portion)",
+          "prix": 2
+        },
+        {
+          "nom": "Portion plantain",
+          "prix": 2.5
+        }
+      ]
+    }
+  ]
+}

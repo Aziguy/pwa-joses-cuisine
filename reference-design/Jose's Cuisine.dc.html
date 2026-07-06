@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #EDE4D3; }
+    body { font-family: 'Instrument Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    @keyframes toastIn { from { opacity: 0; transform: translate(-50%, -8px); } to { opacity: 1; transform: translate(-50%, 0); } }
+    @keyframes sheetIn { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    input, select, textarea, button { font-family: 'Instrument Sans', sans-serif; }
+    image-slot { display: block; width: 100%; height: 100%; }
+  </style>
+</helmet>
+
+<div style="max-width: 430px; margin: 0 auto; min-height: 100dvh; background: #FBF6EC; position: relative; padding-bottom: 92px; color: #2B1B12; box-shadow: 0 0 40px rgba(43,27,18,0.12)">
+
+  <!-- ══ HEADER ══ -->
+  <header style="position: sticky; top: 0; z-index: 40; display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: rgba(251,246,236,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid #EEDFC9">
+    <div onClick="{{ goAccueil }}" style="width: 44px; height: 44px; border-radius: 50%; background: #BE4E24; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: inset 0 0 0 3px #FBF6EC, inset 0 0 0 5px #E8A93A">
+      <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 16px; color: #FBF6EC; letter-spacing: -0.5px">JC</span>
+    </div>
+    <div style="flex: 1; min-width: 0">
+      <div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 18px; line-height: 1.1">Jose's cuisine</div>
+      <div style="font-size: 11.5px; color: #BE4E24; font-weight: 600; font-style: italic">food is bae*</div>
+    </div>
+    <button onClick="{{ waDirect }}" style="display: flex; align-items: center; gap: 6px; background: #1E8E4F; color: #fff; border: none; border-radius: 999px; padding: 9px 14px; font-size: 12.5px; font-weight: 700; cursor: pointer">Commander</button>
+  </header>
+
+  <!-- ══ TOAST ══ -->
+  <sc-if value="{{ toastMsg }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 100; background: #2B1B12; color: #FBF6EC; padding: 12px 18px; border-radius: 12px; font-size: 13px; font-weight: 600; max-width: 340px; text-align: center; animation: toastIn 0.25s ease; box-shadow: 0 8px 24px rgba(43,27,18,0.3)">{{ toastMsg }}</div>
+  </sc-if>
+
+  <sc-if value="{{ notLoaded }}" hint-placeholder-val="{{ false }}">
+    <div style="padding: 60px 20px; text-align: center; color: #7A6A5C; font-size: 14px">Chargement de la carte…</div>
+  </sc-if>
+
+  <sc-if value="{{ loaded }}" hint-placeholder-val="{{ true }}">
+
+  <!-- ════════ ACCUEIL ════════ -->
+  <sc-if value="{{ isAccueil }}" hint-placeholder-val="{{ true }}">
+    <main data-screen-label="Accueil">
+      <section style="padding: 16px 16px 0">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero" placeholder="Photo du plat signature (ndolè, poulet DG…)" radius="18" hint-size="100%,230px" style="width: 100%; height: 230px; display: block"></x-import>
+      </section>
+      <section style="padding: 20px 20px 8px">
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #BE4E24; margin-bottom: 8px">Fait maison · Yvelines</div>
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 30px; line-height: 1.08; margin: 0 0 10px; text-wrap: balance">La cuisine camerounaise, faite maison, livrée chez vous.</h1>
+        <p style="font-size: 15px; line-height: 1.55; color: #5C4B3E; margin: 0 0 18px">José cuisine chez elle, avec des produits frais et bio autant que possible, et livre à domicile dans tout le 78. Marinades maison, recettes de famille, prix doux.</p>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <button onClick="{{ goMenu }}" style="display: flex; align-items: center; justify-content: center; background: #BE4E24; color: #fff; border: none; border-radius: 14px; padding: 15px 18px; font-size: 15px; font-weight: 700; cursor: pointer">Voir le menu de la semaine</button>
+          <button onClick="{{ waDirect }}" style="display: flex; align-items: center; justify-content: center; background: #1E8E4F; color: #fff; border: none; border-radius: 14px; padding: 15px 18px; font-size: 15px; font-weight: 700; cursor: pointer">Commander sur WhatsApp</button>
+        </div>
+      </section>
+
+      <div style="height: 8px; margin: 20px 0; background: repeating-linear-gradient(90deg, #BE4E24 0 16px, #E8A93A 16px 32px, #1C6B52 32px 48px); opacity: 0.85"></div>
+
+      <section style="padding: 4px 20px 8px">
+        <div style="display: flex; align-items: center; gap: 10px; background: #1C6B52; color: #F2EBDD; border-radius: 14px; padding: 13px 16px">
+          <div style="width: 8px; height: 8px; border-radius: 50%; background: #E8A93A; flex-shrink: 0"></div>
+          <div style="font-size: 13px; font-weight: 600; line-height: 1.4">{{ zoneTexte }} — <a href="#" onClick="{{ goZone }}" style="color: #E8A93A; text-decoration: underline">voir les communes</a></div>
+        </div>
+      </section>
+
+      <section style="padding: 20px 20px 4px">
+        <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 21px; margin: 0 0 14px">Ce qu'on fait pour vous</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+          <sc-for list="{{ piliers }}" as="p" hint-placeholder-count="6">
+            <div style="background: #fff; border: 1px solid #EEDFC9; border-radius: 14px; padding: 14px 13px; display: flex; flex-direction: column; gap: 6px">
+              <div style="width: 10px; height: 10px; background: {{ p.couleur }}; transform: rotate(45deg); margin: 2px 0 4px"></div>
+              <div style="font-weight: 700; font-size: 13.5px; line-height: 1.25">{{ p.nom }}</div>
+              <div style="font-size: 12px; color: #7A6A5C; line-height: 1.4">{{ p.desc }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="padding: 24px 20px 4px">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px">
+          <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 21px; margin: 0">Nos plats phares</h2>
+          <a href="#" onClick="{{ goRecettes }}" style="font-size: 13px; font-weight: 700; color: #BE4E24; text-decoration: none">Toutes les recettes →</a>
+        </div>
+        <div style="display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; margin: 0 -20px; padding-left: 20px; padding-right: 20px">
+          <sc-for list="{{ recettesPhares }}" as="r" hint-placeholder-count="3">
+            <div onClick="{{ r.ouvrir }}" style="flex: 0 0 200px; background: #fff; border: 1px solid #EEDFC9; border-radius: 16px; overflow: hidden; cursor: pointer">
+              <div style="height: 110px; background: repeating-linear-gradient(45deg, #F3E7D3 0 10px, #EDDFC8 10px 20px); display: flex; align-items: center; justify-content: center">
+                <span style="font-family: monospace; font-size: 10px; color: #A08F7C">photo — {{ r.nom }}</span>
+              </div>
+              <div style="padding: 12px 13px">
+                <div style="font-weight: 700; font-size: 14px; margin-bottom: 4px">{{ r.nom }}</div>
+                <div style="display: flex; justify-content: space-between; align-items: center">
+                  <span style="font-size: 12px; color: #7A6A5C">{{ r.temps }}</span>
+                  <span style="font-weight: 800; font-size: 14px; color: #BE4E24">{{ r.prixTxt }}</span>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="padding: 20px 20px 4px">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px">
+          <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 21px; margin: 0">Ils ont goûté</h2>
+          <a href="#" onClick="{{ goAvis }}" style="font-size: 13px; font-weight: 700; color: #BE4E24; text-decoration: none">Tous les avis →</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <sc-for list="{{ avisExtrait }}" as="a" hint-placeholder-count="2">
+            <div style="background: #fff; border: 1px solid #EEDFC9; border-radius: 14px; padding: 14px 16px">
+              <div style="color: #E8A93A; font-size: 14px; letter-spacing: 2px; margin-bottom: 6px">{{ a.etoiles }}</div>
+              <div style="font-size: 13.5px; line-height: 1.5; color: #3D2E22; margin-bottom: 8px">« {{ a.commentaire }} »</div>
+              <div style="font-size: 12px; font-weight: 700; color: #7A6A5C">{{ a.nom }} · {{ a.date }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="padding: 24px 20px 8px">
+        <div onClick="{{ goEvenements }}" style="background: #2B1B12; border-radius: 18px; padding: 20px; cursor: pointer; background-image: radial-gradient(circle at 12px 12px, rgba(232,169,58,0.16) 3px, transparent 3.5px); background-size: 28px 28px">
+          <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #E8A93A; margin-bottom: 8px">Traiteur & événements</div>
+          <div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 19px; color: #FBF6EC; line-height: 1.25; margin-bottom: 10px">Anniversaire, mariage, baptême ou repas d'équipe ?</div>
+          <div style="font-size: 13.5px; color: #C9B8A4; margin-bottom: 14px">Devis simple et rapide, directement sur WhatsApp.</div>
+          <span style="display: inline-block; background: #E8A93A; color: #2B1B12; font-weight: 700; font-size: 13px; padding: 10px 16px; border-radius: 999px">Demander un devis →</span>
+        </div>
+      </section>
+    </main>
+  </sc-if>
+
+  <!-- ════════ RECETTES (liste) ════════ -->
+  <sc-if value="{{ isRecettesListe }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Recettes" style="padding: 18px 0 8px">
+      <div style="padding: 0 20px 12px">
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; margin: 0 0 4px">Recettes</h1>
+        <p style="font-size: 13.5px; color: #7A6A5C; margin: 0">Nos plats, à commander ou à refaire chez vous.</p>
+      </div>
+      <div style="display: flex; gap: 8px; overflow-x: auto; padding: 4px 20px 10px">
+        <sc-for list="{{ catChips }}" as="c" hint-placeholder-count="5">
+          <button onClick="{{ c.onClick }}" style="flex-shrink: 0; border: 1px solid {{ c.bordure }}; background: {{ c.fond }}; color: {{ c.texte }}; border-radius: 999px; padding: 8px 15px; font-size: 13px; font-weight: 600; cursor: pointer">{{ c.nom }}</button>
+        </sc-for>
+      </div>
+      <div style="display: flex; gap: 8px; overflow-x: auto; padding: 0 20px 14px">
+        <sc-for list="{{ tagChips }}" as="t" hint-placeholder-count="4">
+          <button onClick="{{ t.onClick }}" style="flex-shrink: 0; border: 1px dashed {{ t.bordure }}; background: {{ t.fond }}; color: {{ t.texte }}; border-radius: 999px; padding: 6px 13px; font-size: 12px; font-weight: 600; cursor: pointer">{{ t.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 0 16px">
+        <sc-for list="{{ recettesFiltrees }}" as="r" hint-placeholder-count="4">
+          <div style="background: #fff; border: 1px solid #EEDFC9; border-radius: 16px; overflow: hidden">
+            <div onClick="{{ r.ouvrir }}" style="display: flex; gap: 14px; padding: 13px; cursor: pointer">
+              <div style="flex-shrink: 0; width: 88px; height: 88px; border-radius: 12px; background: repeating-linear-gradient(45deg, #F3E7D3 0 10px, #EDDFC8 10px 20px); display: flex; align-items: center; justify-content: center">
+                <span style="font-family: monospace; font-size: 9px; color: #A08F7C; text-align: center; padding: 4px">photo</span>
+              </div>
+              <div style="flex: 1; min-width: 0">
+                <div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline">
+                  <div style="font-weight: 700; font-size: 15px; line-height: 1.2">{{ r.nom }}</div>
+                  <div style="font-weight: 800; font-size: 14px; color: #BE4E24; flex-shrink: 0">{{ r.prixTxt }}</div>
+                </div>
+                <div style="font-size: 12px; color: #7A6A5C; margin: 4px 0 6px">{{ r.categorie }} · {{ r.temps }} · {{ r.difficulte }}</div>
+                <div style="font-size: 12.5px; color: #5C4B3E; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">{{ r.description }}</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; padding: 0 13px 13px">
+              <button onClick="{{ r.ouvrir }}" style="flex: 1; background: #F6EDDD; color: #2B1B12; border: 1px solid #EEDFC9; border-radius: 11px; padding: 10px; font-size: 13px; font-weight: 700; cursor: pointer">Voir la recette</button>
+              <button onClick="{{ r.commanderWa }}" style="flex: 1; background: #1E8E4F; color: #fff; border: none; border-radius: 11px; padding: 10px; font-size: 13px; font-weight: 700; cursor: pointer">Commander</button>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ aucuneRecette }}" hint-placeholder-val="{{ false }}">
+        <div style="padding: 30px 20px; text-align: center; color: #7A6A5C; font-size: 14px">Aucune recette ne correspond à ces filtres.</div>
+      </sc-if>
+    </main>
+  </sc-if>
+
+  <!-- ════════ RECETTE (détail) ════════ -->
+  <sc-if value="{{ isRecetteDetail }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Fiche recette" style="padding: 14px 0 8px">
+      <div style="padding: 0 16px 12px">
+        <button onClick="{{ fermerRecette }}" style="background: none; border: none; color: #BE4E24; font-size: 14px; font-weight: 700; cursor: pointer; padding: 6px 4px">← Retour aux recettes</button>
+      </div>
+      <div style="margin: 0 16px; height: 200px; border-radius: 18px; background: repeating-linear-gradient(45deg, #F3E7D3 0 10px, #EDDFC8 10px 20px); display: flex; align-items: center; justify-content: center">
+        <span style="font-family: monospace; font-size: 11px; color: #A08F7C">photo — {{ recetteSel.nom }}</span>
+      </div>
+      <div style="padding: 18px 20px 0">
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 25px; margin: 0 0 8px">{{ recetteSel.nom }}</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px">
+          <span style="background: #F6EDDD; border: 1px solid #EEDFC9; border-radius: 999px; padding: 5px 12px; font-size: 12px; font-weight: 600">{{ recetteSel.temps }}</span>
+          <span style="background: #F6EDDD; border: 1px solid #EEDFC9; border-radius: 999px; padding: 5px 12px; font-size: 12px; font-weight: 600">{{ recetteSel.difficulte }}</span>
+          <span style="background: #BE4E24; color: #fff; border-radius: 999px; padding: 5px 12px; font-size: 12px; font-weight: 700">{{ recetteSel.prixTxt }}</span>
+        </div>
+        <p style="font-size: 14.5px; line-height: 1.55; color: #5C4B3E; margin: 0 0 18px">{{ recetteSel.description }}</p>
+        <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 10px">Ingrédients</h2>
+        <div style="display: flex; flex-direction: column; gap: 7px; margin-bottom: 20px">
+          <sc-for list="{{ recetteSel.ingredients }}" as="ing" hint-placeholder-count="4">
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #3D2E22">
+              <div style="width: 6px; height: 6px; background: #E8A93A; transform: rotate(45deg); flex-shrink: 0"></div>{{ ing }}
+            </div>
+          </sc-for>
+        </div>
+        <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 10px">Étapes</h2>
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px">
+          <sc-for list="{{ recetteEtapes }}" as="e" hint-placeholder-count="3">
+            <div style="display: flex; gap: 12px; align-items: flex-start">
+              <div style="flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: #1C6B52; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12.5px; font-weight: 700">{{ e.num }}</div>
+              <div style="font-size: 14px; line-height: 1.5; color: #3D2E22; padding-top: 3px">{{ e.texte }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background: #FDF3DE; border: 1px solid #F0DBB0; border-radius: 14px; padding: 14px 16px; margin-bottom: 20px">
+          <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #A97817; margin-bottom: 5px">Astuce de la chef</div>
+          <div style="font-size: 13.5px; line-height: 1.5; color: #5C4B3E; font-style: italic">{{ recetteSel.astuce }}</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 8px">
+          <button onClick="{{ recetteCommanderWa }}" style="background: #1E8E4F; color: #fff; border: none; border-radius: 14px; padding: 15px; font-size: 15px; font-weight: 700; cursor: pointer">Commander ce plat sur WhatsApp</button>
+          <button onClick="{{ recetteCommanderMe }}" style="background: #0B69C7; color: #fff; border: none; border-radius: 14px; padding: 15px; font-size: 15px; font-weight: 700; cursor: pointer">Commander via Messenger</button>
+        </div>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ════════ MENU DE LA SEMAINE ════════ -->
+  <sc-if value="{{ isMenu }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Menu de la semaine" style="padding: 18px 0 8px">
+      <div style="padding: 0 20px 12px">
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; margin: 0 0 4px">Menu de la semaine</h1>
+        <p style="font-size: 13.5px; color: #7A6A5C; margin: 0">{{ delaiCommande }}. Livraison : {{ fraisLivraison }}.</p>
+      </div>
+      <div style="display: flex; gap: 8px; overflow-x: auto; padding: 4px 20px 14px">
+        <sc-for list="{{ jourChips }}" as="j" hint-placeholder-count="7">
+          <button onClick="{{ j.onClick }}" style="flex-shrink: 0; border: 1px solid {{ j.bordure }}; background: {{ j.fond }}; color: {{ j.texte }}; border-radius: 12px; padding: 9px 14px; font-size: 13px; font-weight: 700; cursor: pointer">{{ j.jour }}</button>
+        </sc-for>
+      </div>
+      <div style="padding: 0 16px">
+        <div style="background: #fff; border: 1px solid #EEDFC9; border-radius: 18px; overflow: hidden">
+          <div style="background: #2B1B12; color: #FBF6EC; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center">
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 17px">{{ jourSelNom }}</span>
+            <span style="font-size: 12px; color: #E8A93A; font-weight: 700">Menu complet : {{ jourTotalTxt }}</span>
+          </div>
+          <div style="display: flex; flex-direction: column">
+            <sc-for list="{{ jourPlats }}" as="p" hint-placeholder-count="4">
+              <div style="display: flex; align-items: center; gap: 12px; padding: 13px 16px; border-bottom: 1px solid #F3E9D8">
+                <div style="flex: 1; min-width: 0">
+                  <div style="font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #BE4E24">{{ p.type }}</div>
+                  <div style="font-weight: 600; font-size: 14.5px; margin-top: 2px">{{ p.nom }}</div>
+                </div>
+                <div style="font-weight: 800; font-size: 14px; color: #2B1B12">{{ p.prixTxt }}</div>
+                <button onClick="{{ p.commanderWa }}" style="flex-shrink: 0; background: #E9F6EE; color: #1E8E4F; border: 1px solid #BFE3CC; border-radius: 10px; padding: 8px 12px; font-size: 12px; font-weight: 700; cursor: pointer">Commander</button>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 9px; padding: 14px 16px">
+            <button onClick="{{ commanderJourWa }}" style="background: #1E8E4F; color: #fff; border: none; border-radius: 13px; padding: 14px; font-size: 14.5px; font-weight: 700; cursor: pointer">Commander le menu du jour — WhatsApp</button>
+            <button onClick="{{ commanderJourMe }}" style="background: #0B69C7; color: #fff; border: none; border-radius: 13px; padding: 14px; font-size: 14.5px; font-weight: 700; cursor: pointer">Commander via Messenger</button>
+          </div>
+        </div>
+        <p style="font-size: 12px; color: #A08F7C; text-align: center; margin: 14px 20px 0; line-height: 1.5">Minimum de commande {{ minimumCommande }}. Le message se prépare tout seul, il ne reste qu'à l'envoyer.</p>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ════════ COMPOSE TON REPAS ════════ -->
+  <sc-if value="{{ isComposer }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Compose ton repas" style="padding: 18px 0 8px">
+      <div style="padding: 0 20px 14px">
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; margin: 0 0 4px">Compose ton repas</h1>
+        <p style="font-size: 13.5px; color: #7A6A5C; margin: 0">Choisis dans chaque catégorie, on s'occupe du reste.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px; padding: 0 16px">
+        <sc-for list="{{ composeCats }}" as="cat" hint-placeholder-count="4">
+          <div style="background: #fff; border: 1px solid #EEDFC9; border-radius: 16px; padding: 14px 15px">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px">
+              <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 16px">{{ cat.nom }}</span>
+              <span style="font-size: 11px; color: #A08F7C; font-weight: 600">{{ cat.sub }}</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px">
+              <sc-for list="{{ cat.options }}" as="o" hint-placeholder-count="3">
+                <div onClick="{{ o.toggle }}" style="display: flex; align-items: center; gap: 11px; padding: 11px 12px; border-radius: 12px; border: 1.5px solid {{ o.bordure }}; background: {{ o.fond }}; cursor: pointer">
+                  <div style="width: 19px; height: 19px; border-radius: 50%; border: 2px solid {{ o.cocheBord }}; background: {{ o.cocheFond }}; flex-shrink: 0; display: flex; align-items: center; justify-content: center">
+                    <sc-if value="{{ o.selected }}" hint-placeholder-val="{{ false }}">
+                      <div style="width: 8px; height: 8px; border-radius: 50%; background: #fff"></div>
+                    </sc-if>
+                  </div>
+                  <span style="flex: 1; font-size: 14px; font-weight: 600">{{ o.nom }}</span>
+                  <span style="font-size: 13.5px; font-weight: 700; color: #BE4E24; flex-shrink: 0; white-space: nowrap">{{ o.prixTxt }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+        <div style="background: #fff; border: 1px solid #EEDFC9; border-radius: 16px; padding: 14px 15px">
+          <div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 10px">Précisions</div>
+          <textarea ref="{{ precRef }}" placeholder="Allergies, niveau de piment, sans porc, heure de livraison souhaitée…" style="width: 100%; min-height: 80px; border: 1px solid #EEDFC9; border-radius: 12px; padding: 12px; font-size: 14px; resize: vertical; background: #FBF6EC; color: #2B1B12"></textarea>
+        </div>
+        <div style="background: #2B1B12; border-radius: 18px; padding: 16px">
+          <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #E8A93A; margin-bottom: 10px">Ton repas</div>
+          <sc-if value="{{ composeVide }}" hint-placeholder-val="{{ true }}">
+            <div style="font-size: 13.5px; color: #C9B8A4; margin-bottom: 12px">Rien de sélectionné pour l'instant — choisis au moins un plat ci-dessus.</div>
+          </sc-if>
+          <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px">
+            <sc-for list="{{ composeRecap }}" as="l" hint-placeholder-count="0">
+              <div style="display: flex; justify-content: space-between; font-size: 13.5px; color: #FBF6EC">
+                <span>{{ l.nom }}</span><span style="font-weight: 700">{{ l.prixTxt }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display: flex; justify-content: space-between; border-top: 1px solid rgba(251,246,236,0.2); padding-top: 10px; margin-bottom: 14px">
+            <span style="font-weight: 700; font-size: 15px; color: #FBF6EC">Total estimé</span>
+            <span style="font-weight: 800; font-size: 17px; color: #E8A93A">{{ composeTotalTxt }}</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 9px">
+            <button onClick="{{ composeEnvoyerWa }}" style="background: #1E8E4F; color: #fff; border: none; border-radius: 13px; padding: 14px; font-size: 14.5px; font-weight: 700; cursor: pointer">Envoyer ma commande sur WhatsApp</button>
+            <button onClick="{{ composeEnvoyerMe }}" style="background: #0B69C7; color: #fff; border: none; border-radius: 13px; padding: 14px; font-size: 14.5px; font-weight: 700; cursor: pointer">Envoyer via Messenger</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ════════ ÉVÉNEMENTS & TRAITEUR ════════ -->
+  <sc-if value="{{ isEvenements }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Événements & Traiteur" style="padding: 18px 0 8px">
+      <div style="padding: 0 20px 14px">
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; margin: 0 0 4px">Événements & traiteur</h1>
+        <p style="font-size: 13.5px; color: #7A6A5C; margin: 0">De 10 à 150 personnes, dans tout le 78.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 0 16px 18px">
+        <sc-for list="{{ evTypes }}" as="t" hint-placeholder-count="4">
+          <div style="background: #fff; border: 1px solid #EEDFC9; border-radius: 14px; padding: 13px 15px; display: flex; justify-content: space-between; gap: 12px; align-items: center">
+            <div>
+              <div style="font-weight: 700; font-size: 14.5px">{{ t.nom }}</div>
+              <div style="font-size: 12.5px; color: #7A6A5C; margin-top: 2px">{{ t.desc }}</div>
+            </div>
+            <div style="flex-shrink: 0; font-size: 12px; font-weight: 700; color: #1C6B52; text-align: right; max-width: 90px">{{ t.tarif }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin: 0 16px; background: #fff; border: 1px solid #EEDFC9; border-radius: 18px; padding: 18px 16px">
+        <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 14px">Demande de devis</h2>
+        <div style="display: flex; flex-direction: column; gap: 11px">
+          <label style="display: flex; flex-direction: column; gap: 5px; font-size: 12.5px; font-weight: 700; color: #5C4B3E">Type d'événement
+            <select ref="{{ evTypeRef }}" style="border: 1px solid #EEDFC9; border-radius: 11px; padding: 12px; font-size: 14px; background: #FBF6EC; color: #2B1B12">
+              <sc-for list="{{ evTypesNoms }}" as="n" hint-placeholder-count="3">
+                <option value="{{ n }}">{{ n }}</option>
+              </sc-for>
+            </select>
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 5px; font-size: 12.5px; font-weight: 700; color: #5C4B3E">Date souhaitée
+            <input ref="{{ evDateRef }}" type="date" style="border: 1px solid #EEDFC9; border-radius: 11px; padding: 12px; font-size: 14px; background: #FBF6EC; color: #2B1B12">
+          </label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+            <label style="display: flex; flex-direction: column; gap: 5px; font-size: 12.5px; font-weight: 700; color: #5C4B3E">Nombre d'invités
+              <input ref="{{ evPersRef }}" type="number" min="1" placeholder="ex : 25" style="border: 1px solid #EEDFC9; border-radius: 11px; padding: 12px; font-size: 14px; background: #FBF6EC; color: #2B1B12; width: 100%">
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 5px; font-size: 12.5px; font-weight: 700; color: #5C4B3E">Budget indicatif
+              <input ref="{{ evBudgetRef }}" type="text" placeholder="ex : 500 €" style="border: 1px solid #EEDFC9; border-radius: 11px; padding: 12px; font-size: 14px; background: #FBF6EC; color: #2B1B12; width: 100%">
+            </label>
+          </div>
+          <label style="display: flex; flex-direction: column; gap: 5px; font-size: 12.5px; font-weight: 700; color: #5C4B3E">Votre message
+            <textarea ref="{{ evMsgRef }}" placeholder="Contexte, envies, contraintes…" style="border: 1px solid #EEDFC9; border-radius: 11px; padding: 12px; font-size: 14px; min-height: 70px; resize: vertical; background: #FBF6EC; color: #2B1B12"></textarea>
+          </label>
+          <button onClick="{{ evEnvoyerWa }}" style="background: #1E8E4F; color: #fff; border: none; border-radius: 13px; padding: 14px; font-size: 14.5px; font-weight: 700; cursor: pointer; margin-top: 4px">Recevoir mon devis sur WhatsApp</button>
+          <button onClick="{{ evEnvoyerMe }}" style="background: #0B69C7; color: #fff; border: none; border-radius: 13px; padding: 14px; font-size: 14.5px; font-weight: 700; cursor: pointer">Envoyer via Messenger</button>
+        </div>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ════════ CONTACT ════════ -->
+  <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Contact" style="padding: 18px 0 8px">
+      <div style="padding: 0 20px 14px">
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; margin: 0 0 4px">Contact</h1>
+        <p style="font-size: 13.5px; color: #7A6A5C; margin: 0">Une question, une envie particulière ? Écrivez-nous.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; padding: 0 16px 16px">
+        <button onClick="{{ waDirect }}" style="background: #1E8E4F; color: #fff; border: none; border-radius: 13px; padding: 14px 8px; font-size: 13px; font-weight: 700; cursor: pointer">WhatsApp</button>
+        <button onClick="{{ meDirect }}" style="background: #0B69C7; color: #fff; border: none; border-radius: 13px; padding: 14px 8px; font-size: 13px; font-weight: 700; cursor: pointer">Messenger</button>
+        <a href="{{ telHref }}" style="display: flex; align-items: center; justify-content: center; background: #2B1B12; color: #fff; border-radius: 13px; padding: 14px 8px; font-size: 13px; font-weight: 700; text-decoration: none">Appeler</a>
+      </div>
+      <div style="margin: 0 16px; background: #fff; border: 1px solid #EEDFC9; border-radius: 18px; padding: 18px 16px">
+        <div style="display: flex; flex-direction: column; gap: 11px">
+          <label style="display: flex; flex-direction: column; gap: 5px; font-size: 12.5px; font-weight: 700; color: #5C4B3E">Votre nom
+            <input ref="{{ ctNomRef }}" type="text" placeholder="Prénom et nom" style="border: 1px solid #EEDFC9; border-radius: 11px; padding: 12px; font-size: 14px; background: #FBF6EC; color: #2B1B12">
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 5px; font-size: 12.5px; font-weight: 700; color: #5C4B3E">Téléphone
+            <input ref="{{ ctTelRef }}" type="tel" placeholder="06 …" style="border: 1px solid #EEDFC9; border-radius: 11px; padding: 12px; font-size: 14px; background: #FBF6EC; color: #2B1B12">
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 5px; font-size: 12.5px; font-weight: 700; color: #5C4B3E">Votre message
+            <textarea ref="{{ ctMsgRef }}" placeholder="Demande spéciale, plat hors menu, quantité inhabituelle…" style="border: 1px solid #EEDFC9; border-radius: 11px; padding: 12px; font-size: 14px; min-height: 80px; resize: vertical; background: #FBF6EC; color: #2B1B12"></textarea>
+          </label>
+          <button onClick="{{ ctEnvoyerWa }}" style="background: #1E8E4F; color: #fff; border: none; border-radius: 13px; padding: 14px; font-size: 14.5px; font-weight: 700; cursor: pointer; margin-top: 4px">Envoyer sur WhatsApp</button>
+        </div>
+      </div>
+      <div style="margin: 16px 16px 0; background: #1C6B52; color: #F2EBDD; border-radius: 16px; padding: 15px 17px; font-size: 13.5px; line-height: 1.5">
+        <strong>{{ zoneTexte }}</strong><br>{{ horaires }}
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ════════ QUI SOMMES-NOUS ════════ -->
+  <sc-if value="{{ isApropos }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Qui sommes-nous" style="padding: 18px 0 8px">
+      <div style="display: flex; flex-direction: column; align-items: center; padding: 8px 20px 4px; text-align: center">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="portrait" shape="circle" placeholder="Photo de José en cuisine" hint-size="150px,150px" style="width: 150px; height: 150px; display: block"></x-import>
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; margin: 16px 0 2px">{{ equipePrenom }}</h1>
+        <div style="font-size: 13px; font-weight: 700; color: #BE4E24; text-transform: uppercase; letter-spacing: 0.08em">{{ equipeTitre }}</div>
+      </div>
+      <div style="padding: 18px 22px 4px; display: flex; flex-direction: column; gap: 14px">
+        <sc-for list="{{ equipeHistoire }}" as="p" hint-placeholder-count="3">
+          <p style="font-size: 14.5px; line-height: 1.65; color: #3D2E22; margin: 0">{{ p }}</p>
+        </sc-for>
+      </div>
+      <div style="margin: 18px 16px 8px; background: #FDF3DE; border: 1px solid #F0DBB0; border-radius: 16px; padding: 17px 18px">
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #A97817; margin-bottom: 7px">Notre philosophie</div>
+        <div style="font-size: 14.5px; line-height: 1.6; color: #5C4B3E; font-style: italic">« {{ equipePhilosophie }} »</div>
+      </div>
+      <div style="padding: 8px 16px 0">
+        <button onClick="{{ goGalerie }}" style="width: 100%; background: #F6EDDD; color: #2B1B12; border: 1px solid #EEDFC9; border-radius: 13px; padding: 13px; font-size: 14px; font-weight: 700; cursor: pointer">Voir la galerie photos →</button>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ════════ GALERIE ════════ -->
+  <sc-if value="{{ isGalerie }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Galerie" style="padding: 18px 0 8px">
+      <div style="padding: 0 20px 14px">
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; margin: 0 0 4px">Galerie</h1>
+        <p style="font-size: 13.5px; color: #7A6A5C; margin: 0">Plats et événements réalisés. Glissez vos photos dans les cases.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 16px">
+        <sc-for list="{{ galerieItems }}" as="g" hint-placeholder-count="6">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ g.id }}" placeholder="{{ g.legende }}" radius="14" hint-size="100%,150px" style="width: 100%; height: 150px; display: block"></x-import>
+            <div style="font-size: 11.5px; color: #7A6A5C; line-height: 1.35; padding: 0 2px">{{ g.legende }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ════════ AVIS ════════ -->
+  <sc-if value="{{ isAvis }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Avis" style="padding: 18px 0 8px">
+      <div style="padding: 0 20px 14px">
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; margin: 0 0 4px">Avis & témoignages</h1>
+        <p style="font-size: 13.5px; color: #7A6A5C; margin: 0">{{ avisResume }}</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 11px; padding: 0 16px">
+        <sc-for list="{{ avisList }}" as="a" hint-placeholder-count="4">
+          <div style="background: #fff; border: 1px solid #EEDFC9; border-radius: 15px; padding: 15px 16px">
+            <div style="color: #E8A93A; font-size: 15px; letter-spacing: 2px; margin-bottom: 7px">{{ a.etoiles }}</div>
+            <div style="font-size: 14px; line-height: 1.55; color: #3D2E22; margin-bottom: 9px">« {{ a.commentaire }} »</div>
+            <div style="font-size: 12px; font-weight: 700; color: #7A6A5C">{{ a.nom }} · {{ a.date }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="padding: 18px 16px 0">
+        <button onClick="{{ avisLaisserWa }}" style="width: 100%; background: #F6EDDD; color: #2B1B12; border: 1px solid #EEDFC9; border-radius: 13px; padding: 13px; font-size: 14px; font-weight: 700; cursor: pointer">Laisser un avis sur WhatsApp</button>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ════════ ZONE DE LIVRAISON ════════ -->
+  <sc-if value="{{ isZone }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Zone de livraison" style="padding: 18px 0 8px">
+      <div style="padding: 0 20px 14px">
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; margin: 0 0 4px">Zone & infos pratiques</h1>
+        <p style="font-size: 13.5px; color: #7A6A5C; margin: 0">Livraison à domicile dans les Yvelines (78).</p>
+      </div>
+      <div style="padding: 0 20px 16px">
+        <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #BE4E24; margin-bottom: 10px">Communes livrées</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <sc-for list="{{ communes }}" as="c" hint-placeholder-count="8">
+            <span style="background: #fff; border: 1px solid #EEDFC9; border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 600">{{ c }}</span>
+          </sc-for>
+        </div>
+        <p style="font-size: 12.5px; color: #7A6A5C; margin: 12px 0 0">Votre commune n'y est pas ? Demandez-nous sur WhatsApp, on trouve souvent une solution.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 0 16px">
+        <sc-for list="{{ infosPratiques }}" as="i" hint-placeholder-count="4">
+          <div style="background: #fff; border: 1px solid #EEDFC9; border-radius: 14px; padding: 13px 16px; display: flex; justify-content: space-between; gap: 14px; align-items: center">
+            <span style="font-size: 13px; font-weight: 700; color: #7A6A5C">{{ i.label }}</span>
+            <span style="font-size: 13.5px; font-weight: 700; text-align: right">{{ i.valeur }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ════════ ÉPICERIE ════════ -->
+  <sc-if value="{{ isEpicerie }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Épicerie" style="padding: 18px 0 8px">
+      <div style="padding: 0 20px 14px">
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; margin: 0 0 4px">Épicerie maison</h1>
+        <p style="font-size: 13.5px; color: #7A6A5C; margin: 0">Marinades, sauces et épices en pots, à emporter ou en livraison.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 11px; padding: 0 16px">
+        <sc-for list="{{ epicerieProduits }}" as="p" hint-placeholder-count="4">
+          <div style="background: #fff; border: 1px solid #EEDFC9; border-radius: 15px; padding: 14px 15px; display: flex; gap: 13px; align-items: center">
+            <div style="flex-shrink: 0; width: 54px; height: 54px; border-radius: 12px; background: repeating-linear-gradient(45deg, #F3E7D3 0 8px, #EDDFC8 8px 16px); display: flex; align-items: center; justify-content: center">
+              <span style="font-family: monospace; font-size: 8px; color: #A08F7C">photo</span>
+            </div>
+            <div style="flex: 1; min-width: 0">
+              <div style="font-weight: 700; font-size: 14.5px">{{ p.nom }}</div>
+              <div style="font-size: 12px; color: #7A6A5C; margin-top: 2px">{{ p.format }} · {{ p.desc }}</div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 7px; flex-shrink: 0">
+              <span style="font-weight: 800; font-size: 15px; color: #BE4E24">{{ p.prixTxt }}</span>
+              <button onClick="{{ p.commanderWa }}" style="background: #E9F6EE; color: #1E8E4F; border: 1px solid #BFE3CC; border-radius: 10px; padding: 7px 11px; font-size: 12px; font-weight: 700; cursor: pointer">Commander</button>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ════════ ATELIERS ════════ -->
+  <sc-if value="{{ isAteliers }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Ateliers cuisine" style="padding: 18px 0 8px">
+      <div style="padding: 0 20px 14px">
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; margin: 0 0 4px">Ateliers cuisine</h1>
+        <p style="font-size: 13.5px; color: #7A6A5C; margin: 0">Cours de cuisine africaine à domicile ou en petit groupe (max 6 personnes).</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 0 16px">
+        <sc-for list="{{ ateliersList }}" as="a" hint-placeholder-count="3">
+          <div style="background: #fff; border: 1px solid #EEDFC9; border-radius: 16px; padding: 16px">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 6px">
+              <div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 16.5px">{{ a.nom }}</div>
+              <div style="font-weight: 800; font-size: 14px; color: #BE4E24; flex-shrink: 0">{{ a.prix }}</div>
+            </div>
+            <div style="font-size: 12.5px; color: #7A6A5C; margin-bottom: 8px">Durée : {{ a.duree }}</div>
+            <div style="font-size: 13.5px; color: #3D2E22; line-height: 1.5; margin-bottom: 13px">{{ a.desc }}</div>
+            <button onClick="{{ a.reserverWa }}" style="width: 100%; background: #1E8E4F; color: #fff; border: none; border-radius: 12px; padding: 12px; font-size: 13.5px; font-weight: 700; cursor: pointer">Réserver sur WhatsApp</button>
+          </div>
+        </sc-for>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ════════ BLOG (liste) ════════ -->
+  <sc-if value="{{ isBlogListe }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Blog" style="padding: 18px 0 8px">
+      <div style="padding: 0 20px 14px">
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; margin: 0 0 4px">Conseils cuisine</h1>
+        <p style="font-size: 13.5px; color: #7A6A5C; margin: 0">Astuces, bienfaits des ingrédients, cuisine à petit budget.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 0 16px">
+        <sc-for list="{{ blogArticles }}" as="b" hint-placeholder-count="3">
+          <div onClick="{{ b.ouvrir }}" style="background: #fff; border: 1px solid #EEDFC9; border-radius: 16px; padding: 16px; cursor: pointer">
+            <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #1C6B52; margin-bottom: 7px">{{ b.date }}</div>
+            <div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.25; margin-bottom: 7px">{{ b.titre }}</div>
+            <div style="font-size: 13.5px; color: #5C4B3E; line-height: 1.5; margin-bottom: 10px">{{ b.extrait }}</div>
+            <span style="font-size: 13px; font-weight: 700; color: #BE4E24">Lire l'article →</span>
+          </div>
+        </sc-for>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ════════ BLOG (article) ════════ -->
+  <sc-if value="{{ isBlogDetail }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Article de blog" style="padding: 14px 0 8px">
+      <div style="padding: 0 16px 8px">
+        <button onClick="{{ fermerArticle }}" style="background: none; border: none; color: #BE4E24; font-size: 14px; font-weight: 700; cursor: pointer; padding: 6px 4px">← Tous les articles</button>
+      </div>
+      <div style="padding: 0 22px">
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #1C6B52; margin-bottom: 8px">{{ articleSel.date }}</div>
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; line-height: 1.15; margin: 0 0 16px">{{ articleSel.titre }}</h1>
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <sc-for list="{{ articleSel.contenu }}" as="p" hint-placeholder-count="3">
+            <p style="font-size: 14.5px; line-height: 1.65; color: #3D2E22; margin: 0">{{ p }}</p>
+          </sc-for>
+        </div>
+        <div style="margin-top: 22px">
+          <button onClick="{{ goComposer }}" style="width: 100%; background: #BE4E24; color: #fff; border: none; border-radius: 13px; padding: 14px; font-size: 14px; font-weight: 700; cursor: pointer">Une petite faim ? Compose ton repas →</button>
+        </div>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ════════ FAQ ════════ -->
+  <sc-if value="{{ isFaq }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="FAQ" style="padding: 18px 0 8px">
+      <div style="padding: 0 20px 14px">
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; margin: 0 0 4px">Questions fréquentes</h1>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 9px; padding: 0 16px">
+        <sc-for list="{{ faqItems }}" as="f" hint-placeholder-count="5">
+          <div style="background: #fff; border: 1px solid #EEDFC9; border-radius: 14px; overflow: hidden">
+            <div onClick="{{ f.toggle }}" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; cursor: pointer">
+              <span style="font-weight: 700; font-size: 14px; line-height: 1.35">{{ f.q }}</span>
+              <span style="flex-shrink: 0; font-size: 18px; color: #BE4E24; font-weight: 700">{{ f.signe }}</span>
+            </div>
+            <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+              <div style="padding: 0 16px 15px; font-size: 13.5px; line-height: 1.55; color: #5C4B3E">{{ f.r }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ════════ MENTIONS LÉGALES ════════ -->
+  <sc-if value="{{ isMentions }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Mentions légales" style="padding: 18px 22px 8px">
+      <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; margin: 0 0 16px">Mentions légales & confidentialité</h1>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 16px; margin: 0 0 8px">Éditeur</h2>
+      <p style="font-size: 13.5px; line-height: 1.6; color: #5C4B3E; margin: 0 0 16px">Jose's cuisine — activité de restauration artisanale à domicile, basée dans les Yvelines (78), France. Contact : WhatsApp au +33 7 53 44 25 92.</p>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 16px; margin: 0 0 8px">Données personnelles</h2>
+      <p style="font-size: 13.5px; line-height: 1.6; color: #5C4B3E; margin: 0 0 16px">Ce site ne collecte aucune donnée personnelle et n'utilise aucun cookie de suivi. Les commandes se finalisent sur WhatsApp ou Messenger : les informations que vous y partagez (nom, adresse de livraison) servent uniquement à préparer et livrer votre commande, et ne sont jamais transmises à des tiers.</p>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 16px; margin: 0 0 8px">Hygiène & transparence</h2>
+      <p style="font-size: 13.5px; line-height: 1.6; color: #5C4B3E; margin: 0 0 16px">Les plats sont préparés dans une cuisine domestique dans le respect des règles d'hygiène alimentaire. La liste des ingrédients et allergènes de chaque plat est disponible sur simple demande.</p>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 16px; margin: 0 0 8px">Propriété</h2>
+      <p style="font-size: 13.5px; line-height: 1.6; color: #5C4B3E; margin: 0">Les textes, recettes et photos de ce site appartiennent à Jose's cuisine. Merci de demander avant de réutiliser.</p>
+    </main>
+  </sc-if>
+
+  <!-- ══ FOOTER ══ -->
+  <footer style="margin-top: 28px; padding: 22px 20px 18px; border-top: 1px solid #EEDFC9; text-align: center">
+    <div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 16px">Jose's cuisine</div>
+    <div style="font-size: 12px; color: #BE4E24; font-weight: 600; font-style: italic; margin: 2px 0 10px">food is bae*</div>
+    <div style="font-size: 12px; color: #A08F7C; margin-bottom: 12px">{{ zoneTexte }}</div>
+    <a href="#" onClick="{{ goMentions }}" style="font-size: 11.5px; color: #A08F7C; text-decoration: underline">Mentions légales & confidentialité</a>
+    <div style="height: 6px; margin-top: 18px; background: repeating-linear-gradient(90deg, #BE4E24 0 14px, #E8A93A 14px 28px, #1C6B52 28px 42px); border-radius: 3px; opacity: 0.8"></div>
+  </footer>
+
+  </sc-if>
+
+  <!-- ══ SHEET « PLUS » ══ -->
+  <sc-if value="{{ moreOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ fermerPlus }}" style="position: fixed; inset: 0; z-index: 55; background: rgba(43,27,18,0.45)"></div>
+    <div style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; z-index: 60; background: #FBF6EC; border-radius: 22px 22px 0 0; padding: 14px 16px 20px; max-height: 72dvh; overflow-y: auto; animation: sheetIn 0.22s ease">
+      <div style="width: 40px; height: 4px; background: #D9C9B2; border-radius: 2px; margin: 0 auto 14px"></div>
+      <div style="display: flex; flex-direction: column; gap: 7px">
+        <sc-for list="{{ morePages }}" as="m" hint-placeholder-count="6">
+          <div onClick="{{ m.go }}" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; background: #fff; border: 1px solid #EEDFC9; border-radius: 13px; padding: 13px 16px; cursor: pointer">
+            <div>
+              <div style="font-weight: 700; font-size: 14.5px">{{ m.label }}</div>
+              <div style="font-size: 12px; color: #7A6A5C; margin-top: 1px">{{ m.desc }}</div>
+            </div>
+            <span style="color: #BE4E24; font-weight: 700">→</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ══ BOTTOM NAV ══ -->
+  <nav style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; z-index: 50; background: #FFFDF8; border-top: 1px solid #EEDFC9; display: grid; grid-template-columns: repeat(5, 1fr); padding: 6px 4px calc(8px + env(safe-area-inset-bottom))">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
+      <button onClick="{{ n.go }}" style="display: flex; flex-direction: column; align-items: center; gap: 3px; background: none; border: none; cursor: pointer; padding: 7px 2px; min-height: 48px">
+        {{ n.icon }}
+        <span style="font-size: 10.5px; font-weight: 700; color: {{ n.couleur }}">{{ n.label }}</span>
+      </button>
+    </sc-for>
+  </nav>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 430, &quot;height&quot;: 900 },
+  &quot;afficherEpicerie&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Pages optionnelles&quot; },
+  &quot;afficherAteliers&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Pages optionnelles&quot; },
+  &quot;jourAuto&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Menu de la semaine&quot; }
+}">
+class Component extends DCLogic {
+  state = {
+    page: 'accueil', data: null, moreOpen: false,
+    recetteId: null, articleId: null, jourIdx: null,
+    cat: 'Tous', tags: [],
+    compose: { entree: null, plat: null, dessert: null, boisson: null, extra: [] },
+    faqOpen: -1, toast: null
+  };
+
+  precRef = React.createRef();
+  evTypeRef = React.createRef(); evDateRef = React.createRef(); evPersRef = React.createRef();
+  evBudgetRef = React.createRef(); evMsgRef = React.createRef();
+  ctNomRef = React.createRef(); ctTelRef = React.createRef(); ctMsgRef = React.createRef();
+
+  componentDidMount() {
+    const files = ['infos-generales','recettes','menu-semaine','compose-repas','evenements','avis','galerie','faq','blog','equipe','epicerie','ateliers'];
+    Promise.all(files.map(f => fetch('data/' + f + '.json').then(r => r.json())))
+      .then(res => { const d = {}; files.forEach((f, i) => d[f] = res[i]); this.setState({ data: d }); })
+      .catch(e => console.error('Erreur chargement data:', e));
+  }
+
+  nav(p) { this.setState({ page: p, moreOpen: false, recetteId: null, articleId: null }); window.scrollTo(0, 0); }
+  fmt(p) { return (p % 1 ? p.toFixed(2).replace('.', ',') : String(p)) + ' €'; }
+  showToast(m) { clearTimeout(this._tt); this.setState({ toast: m }); this._tt = setTimeout(() => this.setState({ toast: null }), 3000); }
+
+  waOpen(text) {
+    const num = this.state.data['infos-generales'].whatsapp;
+    window.open('https://wa.me/' + num + '?text=' + encodeURIComponent(text), '_blank');
+  }
+  meOpen(text) {
+    const url = this.state.data['infos-generales'].messenger;
+    const go = () => window.open(url, '_blank');
+    if (navigator.clipboard && text) {
+      navigator.clipboard.writeText(text).then(() => { this.showToast('Récapitulatif copié ! Colle-le dans la conversation Messenger.'); setTimeout(go, 400); }).catch(go);
+    } else go();
+  }
+
+  msgPlat(nom, prix, jour) {
+    return 'Bonjour Jose\'s cuisine !\nJe souhaite commander :\n• ' + nom + (prix != null ? ' — ' + this.fmt(prix) : '') + (jour ? ' (' + jour + ')' : '') +
+      '\nQuantité : 1\n\nNom : \nAdresse de livraison : ';
+  }
+  msgJour(j) {
+    const total = j.plats.reduce((s, p) => s + p.prix, 0);
+    return 'Bonjour Jose\'s cuisine !\nJe commande le menu complet du ' + j.jour.toLowerCase() + ' :\n' +
+      j.plats.map(p => '• ' + p.type + ' : ' + p.nom + ' — ' + this.fmt(p.prix)).join('\n') +
+      '\nTotal : ' + this.fmt(total) + '\n\nNom : \nAdresse de livraison : ';
+  }
+  msgCompose() {
+    const d = this.state.data, c = this.state.compose;
+    const cats = d['compose-repas'].categories;
+    const lignes = []; let total = 0;
+    cats.forEach(cat => {
+      const multi = cat.id === 'extra';
+      cat.options.forEach(o => {
+        const sel = multi ? c.extra.includes(o.nom) : c[cat.id] === o.nom;
+        if (sel) { lignes.push('• ' + cat.nom + ' : ' + o.nom + ' — ' + this.fmt(o.prix)); total += o.prix; }
+      });
+    });
+    const prec = this.precRef.current ? this.precRef.current.value.trim() : '';
+    return 'Bonjour Jose\'s cuisine !\nVoici mon repas composé :\n' + lignes.join('\n') +
+      '\nTotal estimé : ' + this.fmt(total) +
+      (prec ? '\nPrécisions : ' + prec : '') +
+      '\n\nNom : \nAdresse de livraison : ';
+  }
+  composeHasSel() {
+    const c = this.state.compose;
+    return !!(c.entree || c.plat || c.dessert || c.boisson || c.extra.length);
+  }
+  msgDevis() {
+    const v = r => (r.current && r.current.value.trim()) || '—';
+    return 'Bonjour Jose\'s cuisine !\nDemande de devis traiteur :\n• Événement : ' + v(this.evTypeRef) +
+      '\n• Date : ' + v(this.evDateRef) + '\n• Invités : ' + v(this.evPersRef) +
+      '\n• Budget indicatif : ' + v(this.evBudgetRef) + '\n• Message : ' + v(this.evMsgRef);
+  }
+  msgContact() {
+    const v = r => (r.current && r.current.value.trim()) || '—';
+    return 'Bonjour Jose\'s cuisine !\n• Nom : ' + v(this.ctNomRef) + '\n• Téléphone : ' + v(this.ctTelRef) + '\n• Message : ' + v(this.ctMsgRef);
+  }
+
+  icon(name, active) {
+    const c = active ? '#BE4E24' : '#8A7A6A';
+    const e = React.createElement;
+    const svg = (children) => e('svg', { width: 22, height: 22, viewBox: '0 0 24 24', fill: 'none', stroke: c, strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round' }, children);
+    if (name === 'accueil') return svg(e('path', { d: 'M3 11.5 12 4l9 7.5M5.5 10v10h13V10' }));
+    if (name === 'recettes') return svg(e('path', { d: 'M5 4h11a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2zM5 18a2 2 0 0 1 2-2h11' }));
+    if (name === 'menu') return svg(e('path', { d: 'M4 6h16v14H4zM4 10h16M8 4v4M16 4v4' }));
+    if (name === 'composer') return svg(e('path', { d: 'M4 12h16c0 4.5-3.6 8-8 8s-8-3.5-8-8zM9.5 8c0-2 1.5-2 1.5-4M14 8c0-2 1.5-2 1.5-4' }));
+    return e('svg', { width: 22, height: 22, viewBox: '0 0 24 24', fill: c },
+      e('circle', { cx: 5, cy: 12, r: 1.8 }), e('circle', { cx: 12, cy: 12, r: 1.8 }), e('circle', { cx: 19, cy: 12, r: 1.8 }));
+  }
+
+  renderVals() {
+    const s = this.state, d = s.data;
+    const goTo = p => () => this.nav(p);
+
+    const base = {
+      goAccueil: goTo('accueil'), goRecettes: goTo('recettes'), goMenu: goTo('menu'),
+      goComposer: goTo('composer'), goEvenements: goTo('evenements'), goContact: goTo('contact'),
+      goAvis: goTo('avis'), goZone: goTo('zone'), goGalerie: goTo('galerie'), goMentions: goTo('mentions'),
+      fermerPlus: () => this.setState({ moreOpen: false }),
+      toastMsg: s.toast, moreOpen: s.moreOpen
+    };
+
+    if (!d) return Object.assign(base, { loaded: false, notLoaded: true, navItems: [], waDirect: () => {}, meDirect: () => {} });
+
+    const infos = d['infos-generales'];
+    const showEpicerie = this.props.afficherEpicerie ?? true;
+    const showAteliers = this.props.afficherAteliers ?? true;
+    const jourAuto = this.props.jourAuto ?? true;
+
+    const waDirect = () => this.waOpen('Bonjour Jose\'s cuisine ! Je voudrais passer une commande.');
+    const meDirect = () => this.meOpen('');
+
+    // ─ nav
+    const morePageIds = ['apropos','galerie','avis','zone','epicerie','ateliers','blog','faq','evenements','contact','mentions'];
+    const navDefs = [
+      { id: 'accueil', label: 'Accueil' }, { id: 'recettes', label: 'Recettes' },
+      { id: 'menu', label: 'Menu' }, { id: 'composer', label: 'Composer' }, { id: 'plus', label: 'Plus' }
+    ];
+    const navItems = navDefs.map(n => {
+      const active = n.id === 'plus' ? (s.moreOpen || morePageIds.includes(s.page)) : (s.page === n.id && !s.moreOpen);
+      return {
+        label: n.label, icon: this.icon(n.id, active), couleur: active ? '#BE4E24' : '#8A7A6A',
+        go: n.id === 'plus' ? () => this.setState({ moreOpen: !s.moreOpen }) : goTo(n.id)
+      };
+    });
+
+    let morePages = [
+      { id: 'evenements', label: 'Événements & Traiteur', desc: 'Devis anniversaire, mariage, entreprise' },
+      { id: 'apropos', label: 'Qui sommes-nous', desc: 'L\'histoire de José, du Cameroun au 78' },
+      { id: 'galerie', label: 'Galerie', desc: 'Photos des plats et événements' },
+      { id: 'avis', label: 'Avis & témoignages', desc: 'Ce que disent nos clients' },
+      { id: 'zone', label: 'Zone de livraison', desc: 'Communes, horaires, frais' },
+      { id: 'epicerie', label: 'Épicerie maison', desc: 'Marinades, sauces et épices en pots' },
+      { id: 'ateliers', label: 'Ateliers cuisine', desc: 'Cours de cuisine africaine' },
+      { id: 'blog', label: 'Conseils cuisine', desc: 'Astuces et articles courts' },
+      { id: 'faq', label: 'FAQ', desc: 'Allergènes, paiement, annulation…' },
+      { id: 'contact', label: 'Contact', desc: 'Demandes spécifiques' },
+      { id: 'mentions', label: 'Mentions légales', desc: 'Confidentialité et infos' }
+    ];
+    if (!showEpicerie) morePages = morePages.filter(m => m.id !== 'epicerie');
+    if (!showAteliers) morePages = morePages.filter(m => m.id !== 'ateliers');
+    morePages = morePages.map(m => ({ ...m, go: goTo(m.id) }));
+
+    // ─ piliers (couleurs cycliques)
+    const cols = ['#BE4E24', '#E8A93A', '#1C6B52'];
+    const piliers = infos.piliers.map((p, i) => ({ ...p, couleur: cols[i % 3] }));
+
+    // ─ recettes
+    const allRec = d['recettes'].recettes;
+    const enrich = r => ({
+      ...r, prixTxt: this.fmt(r.prix),
+      ouvrir: () => { this.setState({ page: 'recettes', recetteId: r.id }); window.scrollTo(0, 0); },
+      commanderWa: () => this.waOpen(this.msgPlat(r.nom, r.prix))
+    });
+    const recettesPhares = ['ndole', 'poulet-dg', 'poisson-braise', 'puff-puff'].map(id => enrich(allRec.find(r => r.id === id)));
+
+    const cats = ['Tous', 'Entrées', 'Plats', 'Desserts', 'Boissons', 'Sauces & Marinades', 'Gâteaux'];
+    const catChips = cats.map(c => {
+      const a = s.cat === c;
+      return { nom: c, fond: a ? '#BE4E24' : '#fff', texte: a ? '#fff' : '#5C4B3E', bordure: a ? '#BE4E24' : '#EEDFC9', onClick: () => this.setState({ cat: c }) };
+    });
+    const tagDefs = [{ id: 'bio', label: 'Bio' }, { id: 'petit-budget', label: 'Petit budget' }, { id: 'vegetarien', label: 'Végétarien' }, { id: 'epice', label: 'Épicé' }];
+    const tagChips = tagDefs.map(t => {
+      const a = s.tags.includes(t.id);
+      return { label: t.label, fond: a ? '#1C6B52' : 'transparent', texte: a ? '#fff' : '#7A6A5C', bordure: a ? '#1C6B52' : '#C9B8A4',
+        onClick: () => this.setState({ tags: a ? s.tags.filter(x => x !== t.id) : [...s.tags, t.id] }) };
+    });
+    const recettesFiltrees = allRec
+      .filter(r => (s.cat === 'Tous' || r.categorie === s.cat) && s.tags.every(t => r.tags.includes(t)))
+      .map(enrich);
+
+    const recSel = s.recetteId ? allRec.find(r => r.id === s.recetteId) : null;
+    const recetteSel = recSel ? { ...recSel, prixTxt: this.fmt(recSel.prix) } : null;
+    const recetteEtapes = recSel ? recSel.etapes.map((t, i) => ({ num: i + 1, texte: t })) : [];
+
+    // ─ menu semaine
+    const jours = d['menu-semaine'].jours;
+    const todayIdx = (new Date().getDay() + 6) % 7;
+    const jourIdx = s.jourIdx != null ? s.jourIdx : (jourAuto ? todayIdx : 0);
+    const jourChips = jours.map((j, i) => {
+      const a = i === jourIdx;
+      return { jour: j.jour, fond: a ? '#2B1B12' : '#fff', texte: a ? '#FBF6EC' : '#5C4B3E', bordure: a ? '#2B1B12' : '#EEDFC9', onClick: () => this.setState({ jourIdx: i }) };
+    });
+    const jourSel = jours[jourIdx];
+    const jourPlats = jourSel.plats.map(p => ({ ...p, prixTxt: this.fmt(p.prix), commanderWa: () => this.waOpen(this.msgPlat(p.nom, p.prix, jourSel.jour)) }));
+    const jourTotal = jourSel.plats.reduce((t, p) => t + p.prix, 0);
+
+    // ─ composer
+    const composeCats = d['compose-repas'].categories.map(cat => {
+      const multi = cat.id === 'extra';
+      return {
+        nom: cat.nom, sub: multi ? 'Plusieurs choix possibles' : 'Un choix',
+        options: cat.options.map(o => {
+          const selected = multi ? s.compose.extra.includes(o.nom) : s.compose[cat.id] === o.nom;
+          return {
+            nom: o.nom, prixTxt: this.fmt(o.prix), selected,
+            fond: selected ? '#FDF3DE' : '#FBF6EC', bordure: selected ? '#E8A93A' : '#EEDFC9',
+            cocheFond: selected ? '#BE4E24' : 'transparent', cocheBord: selected ? '#BE4E24' : '#C9B8A4',
+            toggle: () => {
+              const c = { ...s.compose };
+              if (multi) c.extra = selected ? c.extra.filter(x => x !== o.nom) : [...c.extra, o.nom];
+              else c[cat.id] = selected ? null : o.nom;
+              this.setState({ compose: c });
+            }
+          };
+        })
+      };
+    });
+    const composeRecap = []; let composeTotal = 0;
+    d['compose-repas'].categories.forEach(cat => {
+      const multi = cat.id === 'extra';
+      cat.options.forEach(o => {
+        const sel = multi ? s.compose.extra.includes(o.nom) : s.compose[cat.id] === o.nom;
+        if (sel) { composeRecap.push({ nom: o.nom, prixTxt: this.fmt(o.prix) }); composeTotal += o.prix; }
+      });
+    });
+    const composeEnvoyer = via => () => {
+      if (!this.composeHasSel()) { this.showToast('Choisis au moins un élément avant d\'envoyer.'); return; }
+      via === 'wa' ? this.waOpen(this.msgCompose()) : this.meOpen(this.msgCompose());
+    };
+
+    // ─ événements / avis / faq / blog / etc.
+    const evTypes = d['evenements'].types;
+    const avisList = d['avis'].avis.map(a => ({ ...a, etoiles: '★'.repeat(a.note) + '☆'.repeat(5 - a.note) }));
+    const moyenne = (d['avis'].avis.reduce((t, a) => t + a.note, 0) / d['avis'].avis.length).toFixed(1).replace('.', ',');
+    const faqItems = d['faq'].questions.map((f, i) => ({
+      ...f, open: s.faqOpen === i, signe: s.faqOpen === i ? '−' : '+',
+      toggle: () => this.setState({ faqOpen: s.faqOpen === i ? -1 : i })
+    }));
+    const blogArticles = d['blog'].articles.map(b => ({ ...b, ouvrir: () => { this.setState({ page: 'blog', articleId: b.id }); window.scrollTo(0, 0); } }));
+    const articleSel = s.articleId ? d['blog'].articles.find(b => b.id === s.articleId) : null;
+    const epicerieProduits = d['epicerie'].produits.map(p => ({
+      ...p, prixTxt: this.fmt(p.prix),
+      commanderWa: () => this.waOpen(this.msgPlat(p.nom + ' (' + p.format + ')', p.prix))
+    }));
+    const ateliersList = d['ateliers'].ateliers.map(a => ({
+      ...a, reserverWa: () => this.waOpen('Bonjour Jose\'s cuisine !\nJe souhaite réserver l\'atelier « ' + a.nom + ' » (' + a.prix + ').\nDate souhaitée : \nNombre de participants : ')
+    }));
+    const infosPratiques = [
+      { label: 'Horaires de commande', valeur: infos.horaires },
+      { label: 'Délai', valeur: infos.delaiCommande },
+      { label: 'Frais de livraison', valeur: infos.fraisLivraison },
+      { label: 'Minimum de commande', valeur: infos.minimumCommande },
+      { label: 'Paiement', valeur: 'Espèces, virement, Lydia/PayPal' }
+    ];
+
+    const p = s.page;
+    return Object.assign(base, {
+      loaded: true, notLoaded: false,
+      navItems, morePages, waDirect, meDirect,
+      telHref: 'tel:' + infos.telephone.replace(/\s/g, ''),
+      zoneTexte: infos.zone, horaires: infos.horaires,
+      delaiCommande: infos.delaiCommande, fraisLivraison: infos.fraisLivraison, minimumCommande: infos.minimumCommande,
+      communes: infos.communes, infosPratiques,
+
+      isAccueil: p === 'accueil',
+      isRecettesListe: p === 'recettes' && !recSel,
+      isRecetteDetail: p === 'recettes' && !!recSel,
+      isMenu: p === 'menu', isComposer: p === 'composer', isEvenements: p === 'evenements',
+      isContact: p === 'contact', isApropos: p === 'apropos', isGalerie: p === 'galerie',
+      isAvis: p === 'avis', isZone: p === 'zone', isEpicerie: p === 'epicerie',
+      isAteliers: p === 'ateliers',
+      isBlogListe: p === 'blog' && !articleSel, isBlogDetail: p === 'blog' && !!articleSel,
+      isFaq: p === 'faq', isMentions: p === 'mentions',
+
+      piliers, recettesPhares, avisExtrait: avisList.slice(0, 2),
+      catChips, tagChips, recettesFiltrees, aucuneRecette: recettesFiltrees.length === 0,
+      recetteSel, recetteEtapes,
+      fermerRecette: () => this.setState({ recetteId: null }),
+      recetteCommanderWa: () => recSel && this.waOpen(this.msgPlat(recSel.nom, recSel.prix)),
+      recetteCommanderMe: () => recSel && this.meOpen(this.msgPlat(recSel.nom, recSel.prix)),
+
+      jourChips, jourSelNom: jourSel.jour, jourPlats, jourTotalTxt: this.fmt(jourTotal),
+      commanderJourWa: () => this.waOpen(this.msgJour(jourSel)),
+      commanderJourMe: () => this.meOpen(this.msgJour(jourSel)),
+
+      composeCats, composeRecap, composeVide: composeRecap.length === 0,
+      composeTotalTxt: this.fmt(composeTotal),
+      composeEnvoyerWa: composeEnvoyer('wa'), composeEnvoyerMe: composeEnvoyer('me'),
+      precRef: this.precRef,
+
+      evTypes, evTypesNoms: evTypes.map(t => t.nom),
+      evTypeRef: this.evTypeRef, evDateRef: this.evDateRef, evPersRef: this.evPersRef,
+      evBudgetRef: this.evBudgetRef, evMsgRef: this.evMsgRef,
+      evEnvoyerWa: () => this.waOpen(this.msgDevis()),
+      evEnvoyerMe: () => this.meOpen(this.msgDevis()),
+
+      ctNomRef: this.ctNomRef, ctTelRef: this.ctTelRef, ctMsgRef: this.ctMsgRef,
+      ctEnvoyerWa: () => this.waOpen(this.msgContact()),
+
+      equipePrenom: d['equipe'].prenom, equipeTitre: d['equipe'].titre,
+      equipeHistoire: d['equipe'].histoire, equipePhilosophie: d['equipe'].philosophie,
+
+      galerieItems: d['galerie'].photos,
+      avisList, avisResume: 'Note moyenne : ' + moyenne + ' / 5 sur ' + avisList.length + ' avis',
+      avisLaisserWa: () => this.waOpen('Bonjour Jose\'s cuisine !\nVoici mon avis :\nNote (sur 5) : \nCommentaire : '),
+
+      epicerieProduits, ateliersList,
+      blogArticles, articleSel,
+      fermerArticle: () => this.setState({ articleId: null }),
+
+      faqItems
+    });
+  }
+}
+</script>
+</body>
+</html>

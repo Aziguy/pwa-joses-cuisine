@@ -1,0 +1,29 @@
+{
+  "types": [
+    {
+      "nom": "Anniversaire",
+      "desc": "Buffet ou repas assis, gâteau sur mesure possible",
+      "tarif": "à partir de 15 €/pers"
+    },
+    {
+      "nom": "Mariage",
+      "desc": "Menu complet, service et présentation soignés",
+      "tarif": "à partir de 25 €/pers"
+    },
+    {
+      "nom": "Baptême",
+      "desc": "Formules familiales généreuses",
+      "tarif": "à partir de 15 €/pers"
+    },
+    {
+      "nom": "Entreprise",
+      "desc": "Plateaux repas ou buffet pour vos équipes",
+      "tarif": "à partir de 18 €/pers"
+    },
+    {
+      "nom": "Autre événement",
+      "desc": "Dites-nous tout, on s'adapte",
+      "tarif": "sur devis"
+    }
+  ]
+}

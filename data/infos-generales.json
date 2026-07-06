@@ -1,0 +1,55 @@
+{
+  "nom": "Jose's cuisine",
+  "slogan": "food is bae*",
+  "baseline": "Cuisine camerounaise & africaine, faite maison dans les Yvelines",
+  "whatsapp": "33753442592",
+  "telephone": "+33 7 53 44 25 92",
+  "messenger": "https://m.me/100069135330032",
+  "zone": "Yvelines (78) — livraison à domicile",
+  "communes": [
+    "Versailles",
+    "Saint-Quentin-en-Yvelines",
+    "Montigny-le-Bretonneux",
+    "Guyancourt",
+    "Trappes",
+    "Élancourt",
+    "Plaisir",
+    "Poissy",
+    "Vélizy-Villacoublay",
+    "Rambouillet"
+  ],
+  "horaires": "Commandes du lundi au samedi, 9h – 20h",
+  "delaiCommande": "Commander la veille avant 18h",
+  "fraisLivraison": "3 à 6 € selon la commune",
+  "minimumCommande": "20 €",
+  "piliers": [
+    {
+      "nom": "Conseils cuisine personnalisés",
+      "desc": "On vous guide selon vos goûts et votre budget"
+    },
+    {
+      "nom": "Événements & traiteur",
+      "desc": "Anniversaires, mariages, baptêmes, entreprises"
+    },
+    {
+      "nom": "Marinades & sauces maison",
+      "desc": "Préparées à la main, recettes de famille"
+    },
+    {
+      "nom": "Bio & sain",
+      "desc": "Produits frais, de saison, sans additifs"
+    },
+    {
+      "nom": "Petits budgets",
+      "desc": "Bien manger dès 8 €"
+    },
+    {
+      "nom": "Recettes à faire soi-même",
+      "desc": "On transmet, pas de secrets"
+    },
+    {
+      "nom": "Gâteaux sur mesure",
+      "desc": "Pâtisserie pour vos grandes occasions"
+    }
+  ]
+}

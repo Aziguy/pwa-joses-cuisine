@@ -1,0 +1,40 @@
+{
+  "avis": [
+    {
+      "nom": "Aurélie M.",
+      "note": 5,
+      "commentaire": "Le ndolè m'a ramenée à Douala. Généreux, parfumé, livré chaud. Merci José !",
+      "date": "Juin 2026"
+    },
+    {
+      "nom": "Karim B.",
+      "note": 5,
+      "commentaire": "Commandé pour l'anniversaire de ma fille (25 pers). Tout le monde en parle encore.",
+      "date": "Mai 2026"
+    },
+    {
+      "nom": "Sophie L.",
+      "note": 4,
+      "commentaire": "Poulet DG excellent, portions très correctes pour le prix. Je recommande.",
+      "date": "Mai 2026"
+    },
+    {
+      "nom": "Estelle T.",
+      "note": 5,
+      "commentaire": "Les marinades maison sont une tuerie. J'en reprends un pot chaque semaine.",
+      "date": "Avril 2026"
+    },
+    {
+      "nom": "Marc D.",
+      "note": 5,
+      "commentaire": "Simple à commander via WhatsApp, réponse rapide, cuisine sincère et faite avec amour.",
+      "date": "Avril 2026"
+    },
+    {
+      "nom": "Nadia F.",
+      "note": 5,
+      "commentaire": "Atelier cuisine génial : je sais enfin faire le poisson braisé moi-même !",
+      "date": "Mars 2026"
+    }
+  ]
+}

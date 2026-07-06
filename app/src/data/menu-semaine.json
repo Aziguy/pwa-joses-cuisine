@@ -1,0 +1,179 @@
+{
+  "jours": [
+    {
+      "jour": "Lundi",
+      "plats": [
+        {
+          "type": "Entrée",
+          "nom": "Alloco sauce tomate",
+          "prix": 5
+        },
+        {
+          "type": "Plat",
+          "nom": "Mafé de bœuf & riz",
+          "prix": 11
+        },
+        {
+          "type": "Dessert",
+          "nom": "Puff-puff (x4)",
+          "prix": 4
+        },
+        {
+          "type": "Boisson",
+          "nom": "Bissap maison 50cl",
+          "prix": 3
+        }
+      ]
+    },
+    {
+      "jour": "Mardi",
+      "plats": [
+        {
+          "type": "Entrée",
+          "nom": "Accras de morue (x5)",
+          "prix": 6
+        },
+        {
+          "type": "Plat",
+          "nom": "Ndolè aux crevettes & plantain",
+          "prix": 12
+        },
+        {
+          "type": "Dessert",
+          "nom": "Salade de fruits exotiques",
+          "prix": 4
+        },
+        {
+          "type": "Boisson",
+          "nom": "Jus de gingembre 50cl",
+          "prix": 3
+        }
+      ]
+    },
+    {
+      "jour": "Mercredi",
+      "plats": [
+        {
+          "type": "Entrée",
+          "nom": "Salade avocat-crevettes",
+          "prix": 6
+        },
+        {
+          "type": "Plat",
+          "nom": "Poulet DG",
+          "prix": 13
+        },
+        {
+          "type": "Dessert",
+          "nom": "Puff-puff (x4)",
+          "prix": 4
+        },
+        {
+          "type": "Boisson",
+          "nom": "Bissap maison 50cl",
+          "prix": 3
+        }
+      ]
+    },
+    {
+      "jour": "Jeudi",
+      "plats": [
+        {
+          "type": "Entrée",
+          "nom": "Alloco sauce tomate",
+          "prix": 5
+        },
+        {
+          "type": "Plat",
+          "nom": "Poisson braisé & miondo",
+          "prix": 14
+        },
+        {
+          "type": "Dessert",
+          "nom": "Part de gâteau coco",
+          "prix": 3.5
+        },
+        {
+          "type": "Boisson",
+          "nom": "Jus de gingembre 50cl",
+          "prix": 3
+        }
+      ]
+    },
+    {
+      "jour": "Vendredi",
+      "plats": [
+        {
+          "type": "Entrée",
+          "nom": "Accras de morue (x5)",
+          "prix": 6
+        },
+        {
+          "type": "Plat",
+          "nom": "Ndolè aux crevettes & plantain",
+          "prix": 12
+        },
+        {
+          "type": "Dessert",
+          "nom": "Salade de fruits exotiques",
+          "prix": 4
+        },
+        {
+          "type": "Boisson",
+          "nom": "Bissap maison 50cl",
+          "prix": 3
+        }
+      ]
+    },
+    {
+      "jour": "Samedi",
+      "plats": [
+        {
+          "type": "Entrée",
+          "nom": "Salade avocat-crevettes",
+          "prix": 6
+        },
+        {
+          "type": "Plat",
+          "nom": "Poulet DG",
+          "prix": 13
+        },
+        {
+          "type": "Dessert",
+          "nom": "Part de gâteau coco",
+          "prix": 3.5
+        },
+        {
+          "type": "Boisson",
+          "nom": "Bissap maison 50cl",
+          "prix": 3
+        }
+      ]
+    },
+    {
+      "jour": "Dimanche",
+      "plats": [
+        {
+          "type": "Entrée",
+          "nom": "Alloco sauce tomate",
+          "prix": 5
+        },
+        {
+          "type": "Plat",
+          "nom": "Poisson braisé & miondo",
+          "prix": 14
+        },
+        {
+          "type": "Dessert",
+          "nom": "Puff-puff (x4)",
+          "prix": 4
+        },
+        {
+          "type": "Boisson",
+          "nom": "Jus de gingembre 50cl",
+          "prix": 3
+        }
+      ]
+    }
+  ]
+}

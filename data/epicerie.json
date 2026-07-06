@@ -1,0 +1,34 @@
+{
+  "produits": [
+    {
+      "nom": "Marinade braisé maison",
+      "format": "Pot 250 g",
+      "prix": 7,
+      "desc": "Notre signature pour poissons et viandes"
+    },
+    {
+      "nom": "Sauce arachide prête",
+      "format": "Pot 300 g",
+      "prix": 6,
+      "desc": "À réchauffer, parfaite sur riz ou légumes"
+    },
+    {
+      "nom": "Piment maison",
+      "format": "Pot 100 g",
+      "prix": 4,
+      "desc": "Attention, il pique vraiment"
+    },
+    {
+      "nom": "Mélange d'épices braisé",
+      "format": "Sachet 80 g",
+      "prix": 5,
+      "desc": "Njansang, pèbè, poivre de Penja"
+    },
+    {
+      "nom": "Sirop de bissap concentré",
+      "format": "Bouteille 33 cl",
+      "prix": 6,
+      "desc": "1 volume de sirop pour 4 volumes d'eau"
+    }
+  ]
+}

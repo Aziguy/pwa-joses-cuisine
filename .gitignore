@@ -1,0 +1,13 @@
+# Dépendances & builds
+node_modules/
+dist/
+dev-dist/
+
+# Logs & caches
+*.log
+.npm/
+.playwright-cli/
+
+# Éditeurs / OS
+.DS_Store
+Thumbs.db
