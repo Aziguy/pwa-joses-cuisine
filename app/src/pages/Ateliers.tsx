@@ -6,7 +6,7 @@ import { usePageMeta } from '../lib/usePageMeta'
 export default function Ateliers() {
   usePageMeta(
     "Ateliers cuisine — Jose's cuisine",
-    'Cours de cuisine africaine à domicile ou en petit groupe dans les Yvelines : ndolè, poisson braisé, pâtisserie africaine. Réservation sur WhatsApp.',
+    'Cours de cuisine africaine à domicile ou en petit groupe en Ile-de-France : ndolè, poisson braisé, pâtisserie africaine. Réservation sur WhatsApp.',
   )
 
   return (

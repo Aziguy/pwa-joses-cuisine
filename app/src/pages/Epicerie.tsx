@@ -6,8 +6,8 @@ import { usePageMeta } from '../lib/usePageMeta'
 
 export default function Epicerie() {
   usePageMeta(
-    "Épicerie maison — Jose's cuisine",
-    'Marinades, sauces et épices maison en pots : marinade braisé, sauce arachide, piment, sirop de bissap. À emporter ou en livraison dans les Yvelines.',
+    "Épicerie maison — JS cuisine",
+    'Marinades, sauces et épices maison en pots : marinade braisé, sauce arachide, piment, sirop de bissap. À emporter ou en livraison en Ile-de-France.',
   )
 
   return (

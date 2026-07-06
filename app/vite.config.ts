@@ -16,7 +16,7 @@ export default defineConfig({
         name: "Jose's cuisine — food is bae*",
         short_name: "Jose's cuisine",
         description:
-          'Cuisine camerounaise & africaine, faite maison dans les Yvelines. Menu de la semaine, recettes, repas composés — commande par WhatsApp ou Messenger.',
+          'Cuisine camerounaise & africaine, faite maison en Ile-de-France. Menu de la semaine, recettes, repas composés — commande par WhatsApp ou Messenger.',
         lang: 'fr',
         start_url: BASE,
         scope: BASE,

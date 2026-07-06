@@ -10,8 +10,8 @@ const PHARES_IDS = ['ndole', 'poulet-dg', 'poisson-braise', 'puff-puff']
 
 export default function Accueil() {
   usePageMeta(
-    "Jose's cuisine — Cuisine camerounaise faite maison, livrée dans les Yvelines",
-    'La cuisine camerounaise, faite maison, livrée chez vous. Menu de la semaine, recettes, traiteur événements — commande par WhatsApp ou Messenger dans les Yvelines (78).',
+    "JS cuisine — Cuisine camerounaise faite maison, livrée dans toute l'Ile-de-France",
+    'La cuisine camerounaise, faite maison, livrée chez vous. Menu de la semaine, recettes, traiteur événements — commande par WhatsApp ou Messenger dans toute l\'Ile-de-France.',
   )
   const navigate = useNavigate()
 
@@ -30,7 +30,7 @@ export default function Accueil() {
       </section>
 
       <section style={{ padding: '20px 20px 8px' }}>
-        <div className="eyebrow">Fait maison · Yvelines</div>
+        <div className="eyebrow">Fait maison · Ile-de-France</div>
         <h1
           style={{
             fontFamily: 'var(--font-titre)',
@@ -44,8 +44,7 @@ export default function Accueil() {
           La cuisine camerounaise, faite maison, livrée chez vous.
         </h1>
         <p style={{ fontSize: 15, lineHeight: 1.55, color: 'var(--texte-2)', margin: '0 0 18px' }}>
-          José cuisine chez elle, avec des produits frais et bio autant que possible, et livre à
-          domicile dans tout le 78. Marinades maison, recettes de famille, prix doux.
+          Josée cuisine chez elle avec des produits frais et bio autant que possible, livre aux frais du client dans toute l’île de France ou retrait à l’adresse indiquée lors de la commande. Marinades maison, recettes de familles, prix doux.
         </p>
         <div className="btn-pile">
           <button className="btn btn-primary" onClick={() => navigate('/menu')}>

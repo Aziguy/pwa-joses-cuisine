@@ -3,8 +3,8 @@ import { usePageMeta } from '../lib/usePageMeta'
 
 export default function Zone() {
   usePageMeta(
-    "Zone de livraison & infos pratiques — Jose's cuisine",
-    `Livraison à domicile dans les Yvelines (78) : ${infos.communes.slice(0, 5).join(', ')}… Horaires, délais, frais et minimum de commande.`,
+    "Zone de livraison & infos pratiques — JS cuisine",
+    `Livraison à domicile en Ile-de-France : ${infos.communes.slice(0, 5).join(', ')}… Horaires, délais, frais et minimum de commande.`,
   )
 
   const infosPratiques = [
@@ -19,7 +19,7 @@ export default function Zone() {
     <main style={{ padding: '18px 0 8px' }}>
       <div className="page-head">
         <h1>Zone &amp; infos pratiques</h1>
-        <p>Livraison à domicile dans les Yvelines (78).</p>
+        <p>Livraison à domicile dans toute l'Ile-de-France.</p>
       </div>
 
       <div style={{ padding: '0 20px 16px' }}>

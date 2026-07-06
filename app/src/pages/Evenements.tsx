@@ -7,7 +7,7 @@ import { usePageMeta } from '../lib/usePageMeta'
 export default function Evenements() {
   usePageMeta(
     "Événements & traiteur — Jose's cuisine",
-    'Traiteur camerounais pour anniversaires, mariages, baptêmes et entreprises dans les Yvelines. Demande de devis simple par WhatsApp.',
+    'Traiteur camerounais pour anniversaires, mariages, baptêmes et entreprises en Ile-de-France. Demande de devis simple par WhatsApp.',
   )
   const toast = useToast()
   const [type, setType] = useState(evenementTypes[0]?.nom ?? '')

@@ -30,8 +30,7 @@ export default function Mentions() {
 
       <h2 style={h2Style}>Éditeur</h2>
       <p style={pStyle}>
-        Jose's cuisine — activité de restauration artisanale à domicile, basée dans les Yvelines
-        (78), France. Contact : WhatsApp au +33 7 53 44 25 92.
+        JS cuisine — activité de restauration artisanale à domicile, basée en Ile-de-France, France. Contact : WhatsApp au +33 7 53 44 25 92.
       </p>
 
       <h2 style={h2Style}>Données personnelles</h2>

@@ -1,12 +1,13 @@
 {
-  "nom": "Jose's cuisine",
+  "nom": "JS cuisine",
   "slogan": "food is bae*",
-  "baseline": "Cuisine camerounaise & africaine, faite maison dans les Yvelines",
+  "baseline": "Cuisine camerounaise & africaine, faite maison en ile-de-france.",
   "whatsapp": "33753442592",
   "telephone": "+33 7 53 44 25 92",
   "messenger": "https://m.me/100069135330032",
-  "zone": "Yvelines (78) — livraison à domicile",
+  "zone": "Ile-de-France — livraison à domicile",
   "communes": [
+    "Paris",
     "Versailles",
     "Saint-Quentin-en-Yvelines",
     "Montigny-le-Bretonneux",
@@ -16,11 +17,18 @@
     "Plaisir",
     "Poissy",
     "Vélizy-Villacoublay",
-    "Rambouillet"
+    "Rambouillet",
+    "Cergy",
+    "Pontoise",
+    "Argenteuil",
+    "Sarcelles",
+    "Saint-Denis",
+    "Aubervilliers",
+    "Montreuil"
   ],
   "horaires": "Commandes du lundi au samedi, 9h – 20h",
   "delaiCommande": "Commander la veille avant 18h",
-  "fraisLivraison": "3 à 6 € selon la commune",
+  "fraisLivraison": "0,70€ le kilomètre",
   "minimumCommande": "20 €",
   "piliers": [
     {

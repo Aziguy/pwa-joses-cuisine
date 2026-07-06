@@ -5,8 +5,8 @@ import { usePageMeta } from '../lib/usePageMeta'
 
 export default function APropos() {
   usePageMeta(
-    "Qui sommes-nous — Jose's cuisine",
-    "L'histoire de José, cheffe et fondatrice de Jose's cuisine : du Cameroun aux Yvelines, une cuisine sincère faite avec amour.",
+    "Qui sommes-nous — JS cuisine",
+    "L'histoire de José, cheffe et fondatrice de JS cuisine : du Cameroun en Ile-de-France, une cuisine sincère faite avec amour.",
   )
 
   return (

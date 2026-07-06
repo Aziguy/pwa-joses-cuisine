@@ -9,7 +9,7 @@ export default function AvisPage() {
 
   usePageMeta(
     "Avis & témoignages — Jose's cuisine",
-    `Note moyenne ${moyenne}/5 : ce que disent les clients de Jose's cuisine, cuisine camerounaise livrée dans les Yvelines.`,
+    `Note moyenne ${moyenne}/5 : ce que disent les clients de JS cuisine, cuisine camerounaise livrée en Ile-de-France.`,
   )
 
   const tries = trierParDateDesc(avis)
