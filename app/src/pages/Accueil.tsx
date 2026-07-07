@@ -26,7 +26,7 @@ export default function Accueil() {
   return (
     <main>
       <section style={{ padding: '16px 16px 0' }}>
-        <PhotoPlaceholder label="Photo du plat signature (ndolè, poulet DG…)" height={230} radius={18} />
+        <img src="/images/plats/cover.jpg" alt="Photo du plat signature" height={230} style={{ borderRadius: 18 }} />
       </section>
 
       <section style={{ padding: '20px 20px 8px' }}>
