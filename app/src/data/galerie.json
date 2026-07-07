@@ -2,35 +2,53 @@
   "photos": [
     {
       "id": "g1",
-      "legende": "Ndolè aux crevettes, plantain vapeur"
+      "legende": "Banane malaxée",
+      "img": "images/plats/banane_malaxe_193x150.jpg"
     },
     {
       "id": "g2",
-      "legende": "Poulet DG du vendredi"
+      "legende": "Poulet DG du vendredi",
+      "img": "images/plats/Poulet_DG_193x150.jpg"
     },
     {
       "id": "g3",
-      "legende": "Poisson braisé au feu de bois"
+      "legende": "Poisson braisé, bananes plantains frites",
+      "img": "images/plats/poisson_braise_193x150.jpg"
     },
     {
       "id": "g4",
-      "legende": "Buffet mariage — 80 personnes"
+      "legende": "Réunion — 20 personnes",
+      "img": "images/plats/reunion_20_personnes_193x150.jpg"
     },
     {
       "id": "g5",
-      "legende": "Puff-puff tout juste frits"
+      "legende": "Ailes de poulet rôti",
+      "img": "images/plats/ailes_poulet_roti_193x150.jpg"
     },
     {
       "id": "g6",
-      "legende": "Marinades maison de la semaine"
+      "legende": "Cuisse de poulet rôti aux fines herbes",
+      "img": "images/plats/cuisse_poulet_193x150.jpg"
     },
     {
       "id": "g7",
-      "legende": "Gâteau coco sur mesure"
+      "legende": "Frites de bananes plantains",
+      "img": "images/plats/frites_plantains_193x150.jpg"
     },
     {
       "id": "g8",
-      "legende": "Atelier cuisine à domicile"
+      "legende": "Mbongo Tchobi",
+      "img": "images/plats/mbongo_193x150.jpg"
+    },
+    {
+      "id": "g9",
+      "legende": "Porc braisé",
+      "img": "images/plats/porc_braise_193x150.jpg"
+    },
+    {
+      "id": "g10",
+      "legende": "Taro sauce jaune",
+      "img": "images/plats/taro_193x150.jpg"
     }
   ]
 }
