@@ -26,7 +26,11 @@ export default function Accueil() {
   return (
     <main>
       <section style={{ padding: '16px 16px 0' }}>
-        <img src={`${import.meta.env.BASE_URL}images/plats/cover.jpg`} alt="Photo du plat signature" height={230} style={{ borderRadius: 18 }} />
+        <img
+          src={`${import.meta.env.BASE_URL}images/plats/cover.jpg`}
+          alt="Photo du plat signature"
+          style={{ borderRadius: 18, width: '100%', height: 230, objectFit: 'cover', display: 'block' }}
+        />
       </section>
 
       <section style={{ padding: '20px 20px 8px' }}>
