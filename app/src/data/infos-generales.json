@@ -58,6 +58,10 @@
     {
       "nom": "Gâteaux sur mesure",
       "desc": "Pâtisserie pour vos grandes occasions"
+    },
+    {
+      "nom": "Boissons naturelles",
+      "desc": "Jus de fruits frais, smoothies, cocktails"
     }
   ]
 }
