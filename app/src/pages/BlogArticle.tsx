@@ -8,7 +8,7 @@ export default function BlogArticle() {
   const article = blog.find((b) => b.id === id)
 
   usePageMeta(
-    article ? `${article.titre} — Jose's cuisine` : "Article introuvable — Jose's cuisine",
+    article ? `${article.titre} — JS cuisine` : "Article introuvable — JS cuisine",
     article?.extrait,
   )
 

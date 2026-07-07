@@ -1,4 +1,4 @@
-# Jose's cuisine — Guide de modification des données
+# JS cuisine — Guide de modification des données
 
 Tout le contenu du site vit dans le dossier **`data/`**, en fichiers JSON.
 Pour changer un menu, un prix ou un avis : ouvrez le fichier, modifiez le texte, enregistrez. **Aucun code à toucher.**

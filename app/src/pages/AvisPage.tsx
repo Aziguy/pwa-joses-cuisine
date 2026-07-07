@@ -8,7 +8,7 @@ export default function AvisPage() {
   const moyenne = (avis.reduce((s, a) => s + a.note, 0) / avis.length).toFixed(1).replace('.', ',')
 
   usePageMeta(
-    "Avis & témoignages — Jose's cuisine",
+    "Avis & témoignages — JS cuisine",
     `Note moyenne ${moyenne}/5 : ce que disent les clients de JS cuisine, cuisine camerounaise livrée en Ile-de-France.`,
   )
 

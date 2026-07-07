@@ -6,7 +6,7 @@ import { infos, type JourMenu } from './data'
 export const fmt = (p: number) =>
   (p % 1 ? p.toFixed(2).replace('.', ',') : String(p)) + ' €'
 
-const SALUT = "Bonjour Jose's cuisine !"
+const SALUT = "Bonjour JS cuisine !"
 const COORDONNEES = '\n\nNom : \nAdresse de livraison : '
 
 export function openWhatsApp(text: string) {

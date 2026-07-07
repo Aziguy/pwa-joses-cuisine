@@ -14,7 +14,7 @@ export default defineConfig({
       includeAssets: ['icons/favicon-64.png', 'icons/apple-touch-icon.png', 'robots.txt'],
       manifest: {
         name: "JS cuisine — food is bae*",
-        short_name: "Jose's cuisine",
+        short_name: "JS cuisine",
         description:
           'Cuisine camerounaise & africaine, faite maison en Ile-de-France. Menu de la semaine, recettes, repas composés — commande par WhatsApp ou Messenger.',
         lang: 'fr',

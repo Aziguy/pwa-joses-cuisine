@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/usePageMeta'
 
 export default function NotFound() {
-  usePageMeta("Page introuvable — Jose's cuisine")
+  usePageMeta("Page introuvable — JS cuisine")
 
   return (
     <main style={{ padding: '60px 20px', textAlign: 'center' }}>

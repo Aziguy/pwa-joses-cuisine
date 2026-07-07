@@ -9,7 +9,7 @@ type Selection = Record<string, string | null> & { extra?: never }
 
 export default function Composer() {
   usePageMeta(
-    "Compose ton repas — Jose's cuisine",
+    "Compose ton repas — JS cuisine",
     'Compose ton repas camerounais sur mesure : entrée, plat, dessert, boisson et extras. Total estimé en direct, commande par WhatsApp ou Messenger.',
   )
   const toast = useToast()

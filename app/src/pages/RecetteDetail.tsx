@@ -11,7 +11,7 @@ export default function RecetteDetail() {
   const recette = recettes.find((r) => r.id === id)
 
   usePageMeta(
-    recette ? `${recette.nom} — Jose's cuisine` : "Recette introuvable — Jose's cuisine",
+    recette ? `${recette.nom} — JS cuisine` : "Recette introuvable — JS cuisine",
     recette?.description,
   )
 

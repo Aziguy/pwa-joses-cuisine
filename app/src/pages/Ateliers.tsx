@@ -5,7 +5,7 @@ import { usePageMeta } from '../lib/usePageMeta'
 
 export default function Ateliers() {
   usePageMeta(
-    "Ateliers cuisine — Jose's cuisine",
+    "Ateliers cuisine — JS cuisine",
     'Cours de cuisine africaine à domicile ou en petit groupe en Ile-de-France : ndolè, poisson braisé, pâtisserie africaine. Réservation sur WhatsApp.',
   )
 

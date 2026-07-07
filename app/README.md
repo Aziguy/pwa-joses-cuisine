@@ -1,6 +1,6 @@
-# Jose's cuisine — PWA
+# JS cuisine — PWA
 
-PWA mobile-first pour **Jose's cuisine** (cuisine camerounaise & africaine, faite maison,
+PWA mobile-first pour **JS cuisine** (cuisine camerounaise & africaine, faite maison,
 livrée dans les Yvelines). React + Vite + TypeScript, sans backend ni base de données :
 tout le contenu vit dans les fichiers JSON de `src/data/`.
 

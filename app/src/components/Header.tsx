@@ -5,7 +5,7 @@ import { msgCommandeDirecte, openWhatsApp } from '../lib/order'
 export default function Header() {
   return (
     <header className="header">
-      <Link to="/" className="logo-jc" aria-label="Accueil — Jose's cuisine">
+      <Link to="/" className="logo-jc" aria-label="Accueil — JS cuisine">
         <span>JC</span>
       </Link>
       <div className="header-infos">

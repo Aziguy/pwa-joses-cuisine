@@ -83,7 +83,7 @@ function CarteRecette({ recette }: { recette: Recette }) {
 
 export default function Recettes() {
   usePageMeta(
-    "Recettes — Jose's cuisine",
+    "Recettes — JS cuisine",
     'Nos recettes camerounaises et africaines : entrées, plats, desserts, boissons, sauces et marinades. À commander ou à refaire chez vous.',
   )
   const [cat, setCat] = useState('Tous')

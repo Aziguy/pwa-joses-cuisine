@@ -6,8 +6,8 @@ import { usePageMeta } from '../lib/usePageMeta'
 
 export default function MenuSemaine() {
   usePageMeta(
-    "Menu de la semaine — Jose's cuisine",
-    `Le menu de la semaine de Jose's cuisine, du lundi au dimanche. ${infos.delaiCommande}. Commande par WhatsApp ou Messenger.`,
+    "Menu de la semaine — JS cuisine",
+    `Le menu de la semaine de JS cuisine, du lundi au dimanche. ${infos.delaiCommande}. Commande par WhatsApp ou Messenger.`,
   )
   const toast = useToast()
   // Jour courant sélectionné par défaut (lundi = 0).

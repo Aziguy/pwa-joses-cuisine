@@ -5,8 +5,8 @@ import { usePageMeta } from '../lib/usePageMeta'
 
 export default function Contact() {
   usePageMeta(
-    "Contact — Jose's cuisine",
-    `Contactez Jose's cuisine par WhatsApp, Messenger ou téléphone. ${infos.zone}.`,
+    "Contact — JS cuisine",
+    `Contactez JS cuisine par WhatsApp, Messenger ou téléphone. ${infos.zone}.`,
   )
   const [nom, setNom] = useState('')
   const [tel, setTel] = useState('')
@@ -32,7 +32,7 @@ export default function Contact() {
         <button
           className="btn btn-wa btn-md"
           style={{ padding: '14px 8px', fontSize: 13 }}
-          onClick={() => openWhatsApp("Bonjour Jose's cuisine ! Je voudrais passer une commande.")}
+          onClick={() => openWhatsApp("Bonjour JS cuisine ! Je voudrais passer une commande.")}
         >
           WhatsApp
         </button>

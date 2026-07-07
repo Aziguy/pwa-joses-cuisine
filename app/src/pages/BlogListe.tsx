@@ -8,7 +8,7 @@ const PAGE_SIZE = 6
 
 export default function BlogListe() {
   usePageMeta(
-    "Conseils cuisine — Jose's cuisine",
+    "Conseils cuisine — JS cuisine",
     'Astuces cuisine africaine : conserver ses marinades, bienfaits du bissap, cuisiner à petit budget, réussir son poisson braisé.',
   )
   const [searchParams, setSearchParams] = useSearchParams()

@@ -4,7 +4,7 @@ import { usePageMeta } from '../lib/usePageMeta'
 
 export default function Faq() {
   usePageMeta(
-    "FAQ — Jose's cuisine",
+    "FAQ — JS cuisine",
     'Questions fréquentes : comment commander, communes livrées, frais de livraison, allergènes, niveau de piment, moyens de paiement, annulation.',
   )
   const [ouverte, setOuverte] = useState(-1)

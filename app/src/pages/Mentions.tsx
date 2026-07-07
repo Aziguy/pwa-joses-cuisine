@@ -16,8 +16,8 @@ const pStyle = {
 
 export default function Mentions() {
   usePageMeta(
-    "Mentions légales & confidentialité — Jose's cuisine",
-    "Mentions légales de Jose's cuisine : éditeur, données personnelles (aucune collecte, pas de cookie de suivi), hygiène et propriété intellectuelle.",
+    "Mentions légales & confidentialité — JS cuisine",
+    "Mentions légales de JS cuisine : éditeur, données personnelles (aucune collecte, pas de cookie de suivi), hygiène et propriété intellectuelle.",
   )
 
   return (
@@ -50,7 +50,7 @@ export default function Mentions() {
 
       <h2 style={h2Style}>Propriété</h2>
       <p style={{ ...pStyle, margin: 0 }}>
-        Les textes, recettes et photos de ce site appartiennent à Jose's cuisine. Merci de demander
+        Les textes, recettes et photos de ce site appartiennent à JS cuisine. Merci de demander
         avant de réutiliser.
       </p>
     </main>

@@ -5,8 +5,8 @@ import { usePageMeta } from '../lib/usePageMeta'
 
 export default function Galerie() {
   usePageMeta(
-    "Galerie — Jose's cuisine",
-    "Photos des plats et événements réalisés par Jose's cuisine : ndolè, poulet DG, buffets de mariage, ateliers…",
+    "Galerie — JS cuisine",
+    "Photos des plats et événements réalisés par JS cuisine : ndolè, poulet DG, buffets de mariage, ateliers…",
   )
 
   return (
